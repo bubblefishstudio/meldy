@@ -66,13 +66,11 @@ ruleset_dur.set("-1", [
 
 function gen_duration_sequence(N){
 	let out =  "";
-	var i;
-	for (i = 0; i < N; i++) {
+	for (let i = 0; i < N; i++) {
 		let rule = ruleset_dur.get("-1");
 		let s = pick_string(rule, Math.random());
 		out += s;
 	}
-
 	return out
 }
 
