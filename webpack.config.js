@@ -16,4 +16,13 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.ya?ml$/,
+        type: 'json', // Required by Webpack v4
+        use: 'yaml-loader'
+      }
+    ]
+  },
 };
