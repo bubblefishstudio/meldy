@@ -3,8 +3,8 @@ ACTAM Project
 
 1. setup environment
 
-	npm install
+		npm ci
 
 2. build
 
-	npm run build
+		npm run build
