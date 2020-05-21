@@ -69,19 +69,26 @@ function generate_ruleset(valence) {
 }
 
 
-
-
-
-var ruleset_dur = new Map()
-
-ruleset_dur.set("s", [
-	["1", 0.3],
-	["0.5", 0.7],
+var ruleset_dur = new Map();
+// duration sequence start with -1
+ruleset_dur.set("-1", [
+	["1 ", 0.2],
+	["0.5 ", 0.5],
+	["0.25 ", 0.15],
+	["0.125 ", 0.1],
+	["0 ", 0.05]
 ])
 
-// generte duration sequence
 function gen_duration_sequence(N){
+	let out =  "";
+	var i;
+	for (i = 0; i < N; i++) {
+		let rule = ruleset_dur.get("-1");
+		let s = pick_string(rule, Math.random());
+		out += s;
+	}
 	
+	return out
 }
 
 // generate sequence of relative grades
