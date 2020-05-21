@@ -1,33 +1,6 @@
 "use strict";
 
-var ruleset = new Map()
-
-ruleset.set("A", [
-	["CD", 0.3],
-	["DC", 0.7],
-])
-
-ruleset.set("C", [
-	["", 1],
-])
-
-ruleset.set("D", [
-	["EE", 0.6],
-	["EF", 0.4],
-])
-
-ruleset.set("F", [
-	["C", 0.5],
-	["E", 0.4],
-	["D",0.1],
-])
-
-ruleset.set("E", [
-	["A", 0.5],
-	["B", 0.4],
-	["D",0.1]
-])
-
+// TODO: refactor grammar into a class
 
 function pick_string(rule, n) {
 	// distribute rules on a line and pick
@@ -37,6 +10,8 @@ function pick_string(rule, n) {
 			return chance[0]
 		low += chance[1]
 	}
+	// in case probabilities don't add up precisely, return last item
+	return rule[rule.length-1][0]
 }
 
 function apply_grammar(inp, ruleset) {
@@ -49,8 +24,24 @@ function apply_grammar(inp, ruleset) {
 	return out
 }
 
+function apply_grammar2(gram, variant, inp) {
+	let ruleset = gram["ruleset"][variant]
+	return apply_grammar(inp, ruleset)
+}
+
+function get_starting_symb(gram, variant) {
+	let rule = gram["starting"][variant]
+	return pick_string(rule, Math.random())
+}
+
+function load_grammar(path) {
+
+}
+
+// ↓↓↓ TODO: put in a separate module ↓↓↓
+
 // generate a motif, shortest subdivision
-function get_motif(){
+function get_motif() {
 	// call gen_duration_sequence and gen_grades_sequence
 	// apply key and scale
 	// spit out final notes
@@ -59,12 +50,6 @@ function get_motif(){
 
 // generate a theme
 function get_theme(){
-	
-}
-
-
-// valence
-function generate_ruleset(valence) {
 
 }
 
@@ -87,13 +72,20 @@ function gen_duration_sequence(N){
 		let s = pick_string(rule, Math.random());
 		out += s;
 	}
-	
+
 	return out
 }
 
 // generate sequence of relative grades
-function gen_grades_sequence(N){
-	
+function gen_grades_sequence(N) {
+	let seq = ""
+	let g = load_grammar("grades.yml")
+	let next = get_starting_symb(g, 1) // TODO: change hardcoded variant
+	while (seq.length < N) {
+		next = apply_grammar2(g, 1, next)
+		seq += next
+	}
+	return seq
 }
 
 
