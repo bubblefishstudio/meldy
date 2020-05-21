@@ -1,0 +1,25 @@
+{
+  "name": "nuvola",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mttbernardini/nuvola.git"
+  },
+  "keywords": [],
+  "author": "Matteo Bernardini & Yilin Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mttbernardini/nuvola/issues"
+  },
+  "homepage": "https://github.com/mttbernardini/nuvola#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
