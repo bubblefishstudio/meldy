@@ -25,5 +25,7 @@
     "webpack-cli": "^3.3.11",
     "yaml-loader": "^0.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "p5": "^1.0.0"
+  }
 }
