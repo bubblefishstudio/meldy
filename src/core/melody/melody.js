@@ -1,5 +1,5 @@
 import grades_rules from "./grades.yml"
-import { Grammar } from "../grammar.js";
+import { Grammar } from "./grammar.js";
 
 // generate a motif, shortest subdivision
 function get_motif() {
@@ -10,7 +10,7 @@ function get_motif() {
 
 
 // generate a theme
-function get_theme(){
+function get_theme() {
 
 }
 
