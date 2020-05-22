@@ -1,4 +1,5 @@
 import p5 from "p5"
+import { Melody } from "./melody/melody.js"
 
 class SoundSynth {
 	constructor() {

@@ -1,6 +1,28 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar.js";
 
+export class Melody {
+	constructor() {
+
+	}
+
+	get sequence() {
+		// implement logic to convert abstract grades sequence to
+		// effective midiNotes to be played
+		// a `null` midiNote represents a rest
+		// `duration` is a relative fraction, with 1 = quarter note
+		// @return [[midiNote, duration], ...]
+	}
+
+	get key() {}
+	set key(k) {}
+
+	get octave() {}
+	set octave(n) {}
+
+	// TODO
+}
+
 // generate a motif, shortest subdivision
 function get_motif() {
 	// call gen_duration_sequence and gen_grades_sequence
