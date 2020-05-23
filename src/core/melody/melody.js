@@ -4,13 +4,32 @@ import { pitch, note } from "music21j"
 
 class MelodyGenerator {
 
-	constructor() {
-		this.valence = 1
-		this.arousal = 1
+	constructor(valence, arousal) {
+		this.valence = valence // 0 to 1
+		this.arousal = arousal // 0 to 1
+	}
+
+	get_key() {
+		return new pitch.Pitch(Math.random * 12)
+	}
+
+	get_octave() {
+		let range = [1,2,3,4,5,6]
+		return range[Math.round(this.valence * (range.length-1))]
+	}
+
+	get_mode() {
+
+	}
+
+	get_notes_sequence() {
+
 	}
 
 	// generate a motif, shortest subdivision
-	get_motif() {
+	/*music21j.Stream*/ get_motif() {
+		let grades = this.gen_grades_sequence(100)
+		let durations = this.gen_duration_sequence(grades.length)
 		// call gen_duration_sequence and gen_grades_sequence
 		// apply key and scale
 		// spit out final notes
@@ -23,7 +42,7 @@ class MelodyGenerator {
 	}
 
 
-	gen_duration_sequence(N) {
+	/*string[]*/ gen_duration_sequence(/*int*/ N) {
 		// TODO: use Grammar class
 		let ruleset_dur = new Map();
 		// duration sequence start with -1
@@ -53,19 +72,19 @@ class MelodyGenerator {
 			let s = pick_string(rule, Math.random())
 			out += s
 		}
-		return out
+		return out.split(" ")
 	}
 
 	// generate sequence of relative grades
-	gen_grades_sequence(N) {
+	/*string[]*/ gen_grades_sequence(/*int*/ N) {
 		let g = new Grammar(grades_rules)
 		g.set_variant(this.valence)
-		return g.generate_sequence(N)
+		return g.generate_sequence(N).split(" ")
 	}
 
 }
 
 // TEST
-let g = new MelodyGenerator()
+let g = new MelodyGenerator(1,1)
 console.log(`grades sequence: ${g.gen_grades_sequence(100)}`)
 console.log(`duration sequence: ${g.gen_duration_sequence(100)}`)

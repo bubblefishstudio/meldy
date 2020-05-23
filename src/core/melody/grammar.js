@@ -1,6 +1,8 @@
 
 export class Grammar {
 
+	// TODO: use arrays instead of space-separated-strings
+
 	constructor(gram_obj) {
 		this.gram = gram_obj
 		this.variant = 0
