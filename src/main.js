@@ -1,2 +1,2 @@
-import "./core/melody/melody.js"
-import "./core/synth.js"
+import "./core/melody/melody"
+import "./core/synth"

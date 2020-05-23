@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
-import { Grammar } from "./grammar.js"
-import { Stream } from "music21j"
+import { Grammar } from "./grammar"
+import { pitch, note } from "music21j"
 
 class MelodyGenerator {
 
