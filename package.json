@@ -26,6 +26,7 @@
     "yaml-loader": "^0.6.0"
   },
   "dependencies": {
+    "music21j": "^0.9.43",
     "p5": "^1.0.0"
   }
 }
