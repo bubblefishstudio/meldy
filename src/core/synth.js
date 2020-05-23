@@ -17,7 +17,12 @@ class SoundSynth {
 		  * midi_note can be `null`: in this case it will represent a rest
 		  */
 	}
+
+	playMelody(m) {
+		this.bpm = m.tempo
+		this.playSequence(m.sequence)
+	}
 }
 
 var p = new SoundSynth()
-p.playSequence([[60, 1], [62, 1], [60, 1]])
+p.playSequence([[60, 1], [62, 1], [null, 1], [60, 1]])
