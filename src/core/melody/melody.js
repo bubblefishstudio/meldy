@@ -10,7 +10,7 @@ class MelodyGenerator {
 	}
 
 	get_key() {
-		return new pitch.Pitch(Math.random * 12)
+		return new pitch.Pitch(Math.floor(Math.random() * 12))
 	}
 
 	get_octave() {
@@ -27,7 +27,7 @@ class MelodyGenerator {
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-		].forEach(line => line.forEach(invl => new interval.Interval(invl)))
+		].map(line => line.map(invl => new interval.Interval(invl)))
 		return modes[Math.round(this.valence * (modes.length-1))]
 	}
 
