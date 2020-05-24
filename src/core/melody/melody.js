@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-const m21j = require("music21j/releases/music21.debug") // music21j module is broken, this is a workaround
+import { pitch } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 class MelodyGenerator {
 
@@ -10,7 +10,7 @@ class MelodyGenerator {
 	}
 
 	get_key() {
-		return new m21j.pitch.Pitch(Math.random * 12)
+		return new pitch.Pitch(Math.random * 12)
 	}
 
 	get_octave() {
