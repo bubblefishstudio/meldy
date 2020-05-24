@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-import { pitch, interval } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
+import { note, stream, pitch, interval } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 class MelodyGenerator {
 
@@ -14,7 +14,7 @@ class MelodyGenerator {
 	}
 
 	get_octave() {
-		const range = [1,2,3,4,5,6]
+		const range = [1,2,3,4,5]
 		return range[Math.round(this.valence * (range.length-1))]
 	}
 
@@ -31,17 +31,25 @@ class MelodyGenerator {
 		return modes[Math.round(this.valence * (modes.length-1))]
 	}
 
-	get_notes_sequence() {
-
+	get_note(grade, duration) {
+		// TODO: rests
+		const mode = this.get_mode()
+		let n = new note.Note()
+		n.pitch = mode[grade-1].transposePitch(this.get_key())
+		n.octave = this.get_octave()
+		n.duration = duration
+		return n
 	}
 
 	// generate a motif, shortest subdivision
 	/*music21j.Stream*/ get_motif() {
 		let grades = this.gen_grades_sequence(100)
 		let durations = this.gen_duration_sequence(grades.length)
-		// call gen_duration_sequence and gen_grades_sequence
-		// apply key and scale
-		// spit out final notes
+		let notes = grades.map((grade, idx) => this.get_note(grade, parseInt(durations[idx])))
+		let s = new stream.Stream()
+		for (const note of notes)
+			s.append(note)
+		return s
 	}
 
 
