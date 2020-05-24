@@ -11,7 +11,7 @@ export class Grammar {
 	}
 
 	// grammar strings in the gram_obj are white-space-separated strings
-	/*string*/ pick_string(/*[string,float]*/ rule, /*float*/ n) {
+	static /*string*/ pick_string(/*[float,string]*/ rule, /*float*/ n) {
 		// distribute rules on a line and pick
 		let low = 0;
 		for (let chance of rule) {
@@ -25,7 +25,7 @@ export class Grammar {
 
 	/*string*/ get_starting_symb() {
 		let rule = this.gram["starting"][this.variant]
-		return this.pick_string(rule, Math.random())
+		return Grammar.pick_string(rule, Math.random())
 	}
 
 	/*string[]*/ apply_to(/*string[]*/ inp) {
@@ -33,7 +33,7 @@ export class Grammar {
 		let ruleset = this.gram["ruleset"][this.variant]
 		for (let sym of inp) {
 			let rule = ruleset[sym] || [["",1]]
-			let s = this.pick_string(rule, Math.random())
+			let s = Grammar.pick_string(rule, Math.random())
 			out = out.concat(s.split(" "))
 		}
 		return out
