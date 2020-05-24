@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-import { note, stream, pitch, interval } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
+import { note, stream, pitch, interval, miditools } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 class MelodyGenerator {
 
@@ -81,36 +81,14 @@ class MelodyGenerator {
 	}
 
 	/*float[]*/ gen_duration_sequence(/*int*/ N) {
-		// TODO: use Grammar class
-		let ruleset_dur = new Map();
-		// duration sequence start with -1
-		ruleset_dur.set("-1", [
-			["1 ", 0.2],
-			["0.5 ", 0.5],
-			["0.25 ", 0.15],
-			["0.125 ", 0.1],
-			["0 ", 0.05]
-		])
-
-		function pick_string(rule, n) {
-			// distribute rules on a line and pick
-			let low = 0;
-			for (let chance of rule) {
-				if (n >= low && n < chance[1] + low)
-					return chance[0]
-				low += chance[1]
-			}
-			// in case probabilities don't add up precisely, return last item
-			return rule[rule.length-1][0]
-		}
-
-		let out =  ""
+		// TODO: use Grammar maybe?
+		let rule = [[0.2, "1"], [0.5, "0.5"], [0.3, "0.25"]]
+		let out =  []
 		for (let i = 0; i < N; i++) {
-			let rule = ruleset_dur.get("-1")
-			let s = pick_string(rule, Math.random())
-			out += s
+			let s = Grammar.pick_string(rule, Math.random())
+			out.push(s)
 		}
-		return out.trim().split(" ").map(parseFloat)
+		return out.map(parseFloat)
 	}
 
 	// generate sequence of relative grades
@@ -123,7 +101,10 @@ class MelodyGenerator {
 }
 
 // TEST
+global.m21j = import("music21j/releases/music21.debug.js")
+
 let g = new MelodyGenerator(1,1)
 global.g = g
 
-global.m21j = import("music21j/releases/music21.debug.js")
+let m = g.gen_motif()
+m.appendNewCanvas()
