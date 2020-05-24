@@ -34,7 +34,7 @@ export class Grammar {
 		for (let sym of inp) {
 			let rule = ruleset[sym] || [["",1]]
 			let s = this.pick_string(rule, Math.random())
-			out.concat(s.split(" "))
+			out = out.concat(s.split(" "))
 		}
 		return out
 	}
@@ -44,7 +44,7 @@ export class Grammar {
 		let next = [this.get_starting_symb()]
 		while (seq.length < size) {
 			next = this.apply_to(next)
-			seq.concat(next)
+			seq = seq.concat(next)
 			if (next.length == 0) break // prevent infinite loop
 		}
 		return seq

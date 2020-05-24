@@ -89,7 +89,7 @@ class MelodyGenerator {
 			let s = pick_string(rule, Math.random())
 			out += s
 		}
-		return out.split(" ").map(parseFloat)
+		return out.trim().split(" ").map(parseFloat)
 	}
 
 	// generate sequence of relative grades
