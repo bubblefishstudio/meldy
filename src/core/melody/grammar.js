@@ -1,8 +1,6 @@
 
 export class Grammar {
 
-	// TODO: use arrays instead of space-separated-strings
-
 	constructor(gram_obj) {
 		this.gram = gram_obj
 		this.variant = 0
@@ -12,7 +10,8 @@ export class Grammar {
 		this.variant = v
 	}
 
-	pick_string(rule, n) {
+	// grammar strings in the gram_obj are white-space-separated strings
+	/*string*/ pick_string(/*[string,float]*/ rule, /*float*/ n) {
 		// distribute rules on a line and pick
 		let low = 0;
 		for (let chance of rule) {
@@ -24,31 +23,31 @@ export class Grammar {
 		return rule[rule.length-1][1]
 	}
 
-	get_starting_symb() {
+	/*string*/ get_starting_symb() {
 		let rule = this.gram["starting"][this.variant]
 		return this.pick_string(rule, Math.random())
 	}
 
-	apply_to(inp) {
-		let out = ""
+	/*string[]*/ apply_to(/*string[]*/ inp) {
+		let out = []
 		let ruleset = this.gram["ruleset"][this.variant]
-		for (let sym of inp.split(" ")) {
+		for (let sym of inp) {
 			let rule = ruleset[sym] || [["",1]]
 			let s = this.pick_string(rule, Math.random())
-			out += s + " "
+			out.concat(s.split(" "))
 		}
-		return out.trim()
+		return out
 	}
 
 	generate_sequence(size) {
-		let seq = ""
-		let next = this.get_starting_symb()
+		let seq = []
+		let next = [this.get_starting_symb()]
 		while (seq.length < size) {
 			next = this.apply_to(next)
-			seq += next + " "
-			if (next == "") break // prevent infinite loop
+			seq.concat(next)
+			if (next.length == 0) break // prevent infinite loop
 		}
-		return seq.trim()
+		return seq
 	}
 
 }

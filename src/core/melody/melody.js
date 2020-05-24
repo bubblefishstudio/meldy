@@ -45,7 +45,7 @@ class MelodyGenerator {
 	/*music21j.Stream*/ get_motif() {
 		let grades = this.gen_grades_sequence(100)
 		let durations = this.gen_duration_sequence(grades.length)
-		let notes = grades.map((grade, idx) => this.get_note(grade, parseInt(durations[idx])))
+		let notes = grades.map((grade, idx) => this.get_note(grade, durations[idx]))
 		let s = new stream.Stream()
 		for (const note of notes)
 			s.append(note)
@@ -59,7 +59,7 @@ class MelodyGenerator {
 	}
 
 
-	/*string[]*/ gen_duration_sequence(/*int*/ N) {
+	/*float[]*/ gen_duration_sequence(/*int*/ N) {
 		// TODO: use Grammar class
 		let ruleset_dur = new Map();
 		// duration sequence start with -1
@@ -89,14 +89,14 @@ class MelodyGenerator {
 			let s = pick_string(rule, Math.random())
 			out += s
 		}
-		return out.split(" ")
+		return out.split(" ").map(parseFloat)
 	}
 
 	// generate sequence of relative grades
 	/*string[]*/ gen_grades_sequence(/*int*/ N) {
 		let g = new Grammar(grades_rules)
 		g.set_variant(this.valence)
-		return g.generate_sequence(N).split(" ")
+		return g.generate_sequence(N)
 	}
 
 }
