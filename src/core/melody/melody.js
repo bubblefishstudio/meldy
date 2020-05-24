@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-import { pitch } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
+import { pitch, interval } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 class MelodyGenerator {
 
@@ -14,12 +14,21 @@ class MelodyGenerator {
 	}
 
 	get_octave() {
-		let range = [1,2,3,4,5,6]
+		const range = [1,2,3,4,5,6]
 		return range[Math.round(this.valence * (range.length-1))]
 	}
 
 	get_mode() {
-
+		const modes = [ // sorted from darkest to brightest
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+		].forEach(line => line.forEach(invl => new interval.Interval(invl)))
+		return modes[Math.round(this.valence * (modes.length-1))]
 	}
 
 	get_notes_sequence() {
@@ -88,3 +97,6 @@ class MelodyGenerator {
 let g = new MelodyGenerator(1,1)
 console.log(`grades sequence: ${g.gen_grades_sequence(100)}`)
 console.log(`duration sequence: ${g.gen_duration_sequence(100)}`)
+
+global.g = g
+global.m21j = import("music21j/releases/music21.debug.js")
