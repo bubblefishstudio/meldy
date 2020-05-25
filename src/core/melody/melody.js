@@ -1,8 +1,15 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-import { note, stream, pitch, interval, miditools } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
+import { note, stream, pitch, interval, meter } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
-class MelodyGenerator {
+// TODO: move to a "utils.js" module
+function select_range(low, up, ratio) {
+	const diff = up - low
+	const shift = low
+	return Math.round(ratio * diff + shift)
+}
+
+export class MelodyGenerator {
 
 	constructor(valence, arousal) {
 		this.valence = valence
@@ -38,8 +45,7 @@ class MelodyGenerator {
 	}
 
 	get octave() {
-		const range = [1,2,3,4,5]
-		return range[Math.round(this.valence * (range.length-1))]
+		return select_range(1, 5, this.valence)
 	}
 
 	get mode() {
@@ -53,6 +59,15 @@ class MelodyGenerator {
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 		].map(line => line.map(invl => new interval.Interval(invl)))
 		return modes[Math.round(this.valence * (modes.length-1))]
+	}
+
+	get time_signature() {
+		// TODO: derive from valence/arousal
+		return new meter.TimeSignature("4/4")
+	}
+
+	get tempo() {
+		return select_range(60, 180, this.arousal)
 	}
 
 	create_note(grade, duration) {
@@ -72,6 +87,8 @@ class MelodyGenerator {
 		let s = new stream.Stream()
 		for (const note of notes)
 			s.append(note)
+		s.timeSignature = this.time_signature
+		s.tempo = this.tempo
 		return s
 	}
 
