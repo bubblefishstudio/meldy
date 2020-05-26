@@ -7,6 +7,9 @@ module.exports = {
   entry: {
     app: './src/main.js',
   },
+  devServer: {
+    contentBase: './dist',
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -31,6 +34,6 @@ module.exports = {
           name: '[path][name].[ext]',
         },
       },
-    ]
+    ],
   },
 };
