@@ -1,6 +1,6 @@
 import grades_rules from "./grades.yml"
 import { Grammar } from "./grammar"
-import { note, stream, pitch, interval, meter } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
+import { note, stream, pitch, interval, meter, clef } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 // TODO: move to a "utils.js" module
 function select_range(low, up, ratio) {
@@ -89,6 +89,8 @@ export class MelodyGenerator {
 			s.append(note)
 		s.timeSignature = this.time_signature
 		s.tempo = this.tempo
+		s.clef = new clef.TrebleClef() // weird
+		s.makeMeasures({inPlace: true, bestClef: true})
 		return s
 	}
 
@@ -124,4 +126,4 @@ let g = new MelodyGenerator(1,1)
 global.g = g
 
 let m = g.gen_motif()
-m.appendNewCanvas()
+m.appendNewDOM(undefined, undefined, undefined, "canvas")
