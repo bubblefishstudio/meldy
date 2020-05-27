@@ -9,6 +9,15 @@ function select_range(low, up, ratio) {
 	return Math.round(ratio * diff + shift)
 }
 
+function round_over(val, values) {
+	let rounded = Infinity;
+	for (let step of values) {
+		if (Math.abs(val - rounded) > Math.abs(val - step))
+			rounded = step
+	}
+	return rounded;
+}
+
 export class MelodyGenerator {
 
 	constructor(valence, arousal) {
@@ -113,7 +122,8 @@ export class MelodyGenerator {
 	// generate sequence of relative grades
 	/*string[]*/ gen_grades_sequence(/*int*/ N) {
 		let g = new Grammar(grades_rules)
-		g.set_variant(this.valence)
+		let v = round_over(this.valence, [0, 0.5, 1])
+		g.set_variant(v)
 		return g.generate_sequence(N)
 	}
 
