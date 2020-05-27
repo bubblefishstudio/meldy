@@ -2,6 +2,7 @@ import { Grammar } from "./grammar"
 import { note, stream, pitch, interval, meter, clef } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 import grades_rules from "./grades.yml"
+import durations_rules from "./durations.yml"
 
 // TODO: move to a "utils.js" module
 function select_range(low, up, ratio) {
@@ -66,7 +67,7 @@ export class MelodyGenerator {
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
+			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
 		].map(line => line.map(invl => new interval.Interval(invl)))
 		return modes[Math.round(this.valence * (modes.length-1))]
 	}
@@ -111,13 +112,16 @@ export class MelodyGenerator {
 
 	/*float[]*/ gen_duration_sequence(/*int*/ N) {
 		// TODO: use Grammar maybe?
-		let rule = [[0.5, "1"], [0.4, "0.5"], [0.1, "0.25"]]
+		/* let rule = [[0.5, "1"], [0.5, "0.5"]]
 		let out =  []
 		for (let i = 0; i < N; i++) {
 			let s = Grammar.pick_string(rule, Math.random())
 			out.push(s)
 		}
-		return out.map(parseFloat)
+		return out.map(parseFloat) */
+		let a = round_over(this.arousal, [0, 0.5, 1])
+		let g = new Grammar(durations_rules, a)
+		return g.generate_sequence(N).map(parseFloat)
 	}
 
 	// generate sequence of relative grades
