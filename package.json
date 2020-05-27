@@ -21,6 +21,7 @@
   "homepage": "https://github.com/mttbernardini/nuvola#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.43.0",
