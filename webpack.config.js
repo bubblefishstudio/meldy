@@ -1,6 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -14,7 +15,12 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Nuvola',
-    }),
+	}),
+	new CopyWebpackPlugin({
+		patterns: [
+			{ from: "node_modules/music21j/soundfonts", to: "soundfonts" },
+		],
+	}),
   ],
   output: {
     filename: '[name].bundle.js',
