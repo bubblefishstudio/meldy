@@ -1,13 +1,9 @@
 
 export class Grammar {
 
-	constructor(gram_obj) {
+	constructor(gram_obj, variant = 0) {
 		this.gram = gram_obj
-		this.variant = 0
-	}
-
-	set_variant(v) {
-		this.variant = v
+		this.variant = variant
 	}
 
 	// grammar strings in the gram_obj are white-space-separated strings

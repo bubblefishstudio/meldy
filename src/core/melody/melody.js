@@ -121,9 +121,8 @@ export class MelodyGenerator {
 
 	// generate sequence of relative grades
 	/*string[]*/ gen_grades_sequence(/*int*/ N) {
-		let g = new Grammar(grades_rules)
 		let v = round_over(this.valence, [0, 0.5, 1])
-		g.set_variant(v)
+		let g = new Grammar(grades_rules, v)
 		return g.generate_sequence(N)
 	}
 
