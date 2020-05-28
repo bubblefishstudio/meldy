@@ -61,6 +61,11 @@ export class MelodyGenerator {
 
 	get mode() {
 		const modes = [ // sorted from darkest to brightest
+			["P1", "m2", "m3", "P4", "D5", "m6", "m7", "P8"],
+			["P1", "m2", "m3", "P4", "P5", "m6", "m7", "P8"],
+			["P1", "M2", "m3", "P4", "P5", "m6", "m7", "P8"],
+			["P1", "M2", "m3", "P4", "P5", "M6", "m7", "P8"],
+			["P1", "M2", "M3", "P4", "P5", "M6", "m7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
