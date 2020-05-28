@@ -56,7 +56,7 @@ export class MelodyGenerator {
 	}
 
 	get octave() {
-		return select_range(1, 5, this.valence)
+		return select_range(2, 5, this.arousal)
 	}
 
 	get mode() {
@@ -69,7 +69,7 @@ export class MelodyGenerator {
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
 		].map(line => line.map(invl => new interval.Interval(invl)))
-		return modes[Math.round(this.valence * (modes.length-1))]
+		return modes[Math.floor(this.valence * modes.length)]
 	}
 
 	get time_signature() {
