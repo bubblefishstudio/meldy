@@ -61,7 +61,7 @@ export class MelodyGenerator {
 
 	get mode() {
 		const modes = [ // sorted from darkest to brightest
-			["P1", "m2", "m3", "P4", "D5", "m6", "m7", "P8"],
+			["P1", "m2", "m3", "P4", "d5", "m6", "m7", "P8"],
 			["P1", "m2", "m3", "P4", "P5", "m6", "m7", "P8"],
 			["P1", "M2", "m3", "P4", "P5", "m6", "m7", "P8"],
 			["P1", "M2", "m3", "P4", "P5", "M6", "m7", "P8"],
@@ -133,8 +133,8 @@ global.m21j = import("music21j/releases/music21.debug.js")
 let valence = window.prompt("insert valence (0 to 1, default: 1)")
 let arousal = window.prompt("insert arousal (0 to 1, default: 1)")
 
-valence = valence != undefined ? parseFloat(valence) : 1
-arousal = arousal != undefined ? parseFloat(arousal) : 1
+valence = valence !== "" ? parseFloat(valence) : 1
+arousal = arousal !== "" ? parseFloat(arousal) : 1
 
 let g = new MelodyGenerator(valence, arousal)
 global.g = g
