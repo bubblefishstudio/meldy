@@ -67,11 +67,6 @@ export class MelodyGenerator {
 			["P1", "M2", "m3", "P4", "P5", "M6", "m7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "m7", "P8"],
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
 		].map(line => line.map(invl => new interval.Interval(invl)))
 		return modes[Math.round(this.valence * (modes.length-1))]
@@ -116,22 +111,16 @@ export class MelodyGenerator {
 	}
 
 	/*float[]*/ gen_duration_sequence(/*int*/ N) {
-		// TODO: use Grammar maybe?
-		/* let rule = [[0.5, "1"], [0.5, "0.5"]]
-		let out =  []
-		for (let i = 0; i < N; i++) {
-			let s = Grammar.pick_string(rule, Math.random())
-			out.push(s)
-		}
-		return out.map(parseFloat) */
-		let a = round_over(this.arousal, [0, 0.5, 1])
+		//let a = round_over(this.arousal, [0, 0.5, 1])
+		let a = 1
 		let g = new Grammar(durations_rules, a)
 		return g.generate_sequence(N).map(parseFloat)
 	}
 
 	// generate sequence of relative grades
 	/*string[]*/ gen_grades_sequence(/*int*/ N) {
-		let v = round_over(this.valence, [0, 0.5, 1])
+		//let v = round_over(this.valence, [0, 0.5, 1])
+		let v = 1
 		let g = new Grammar(grades_rules, v)
 		return g.generate_sequence(N)
 	}
@@ -141,7 +130,13 @@ export class MelodyGenerator {
 // TEST
 global.m21j = import("music21j/releases/music21.debug.js")
 
-let g = new MelodyGenerator(1,1)
+let valence = window.prompt("insert valence (0 to 1, default: 1)")
+let arousal = window.prompt("insert arousal (0 to 1, default: 1)")
+
+valence = valence != undefined ? parseFloat(valence) : 1
+arousal = arousal != undefined ? parseFloat(arousal) : 1
+
+let g = new MelodyGenerator(valence, arousal)
 global.g = g
 
 let m = g.gen_motif()
