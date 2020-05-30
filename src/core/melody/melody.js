@@ -69,7 +69,7 @@ export class MelodyGenerator {
 			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
 			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
 		].map(line => line.map(invl => new interval.Interval(invl)))
-		return modes[Math.floor(this.valence * modes.length)]
+		return modes[Math.round(this.valence * (modes.length - 1))]
 	}
 
 	get time_signature() {
@@ -140,4 +140,5 @@ let g = new MelodyGenerator(valence, arousal)
 global.g = g
 
 let m = g.gen_motif()
-m.appendNewDOM(undefined, undefined, undefined, "canvas")
+m.appendNewDOM()
+global.m = m
