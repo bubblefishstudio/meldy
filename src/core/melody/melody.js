@@ -56,7 +56,7 @@ export class MelodyGenerator {
 	}
 
 	get octave() {
-		return select_range(2, 5, this.arousal)
+		return select_range(2, 6, this.arousal)
 	}
 
 	get mode() {
@@ -78,7 +78,7 @@ export class MelodyGenerator {
 	}
 
 	get tempo() {
-		return select_range(60, 180, this.arousal)
+		return select_range(60, 200, this.arousal)
 	}
 
 	create_note(grade, duration) {
@@ -111,8 +111,7 @@ export class MelodyGenerator {
 	}
 
 	/*float[]*/ gen_duration_sequence(/*int*/ N) {
-		//let a = round_over(this.arousal, [0, 0.5, 1])
-		let a = 1
+		let a = round_over(this.arousal, [0, 0.5, 1])
 		let g = new Grammar(durations_rules, a)
 		return g.generate_sequence(N).map(parseFloat)
 	}
