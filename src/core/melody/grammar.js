@@ -28,7 +28,7 @@ export class Grammar {
 		let out = []
 		let ruleset = this.gram["ruleset"][this.variant]
 		for (let sym of inp) {
-			let rule = ruleset[sym] || [["",1]]
+			let rule = ruleset[sym] || [[1,""]]
 			let s = Grammar.pick_string(rule, Math.random())
 			out = out.concat(s.split(" "))
 		}
