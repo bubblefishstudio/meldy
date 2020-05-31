@@ -84,8 +84,11 @@ export class MelodyGenerator {
 	create_note(grade, duration) {
 		// TODO: rests
 		let n = new note.Note()
+		// set starting point
+		n.pitch = this.key
 		n.octave = this.octave
-		n.pitch = this.mode[grade-1].transposePitch(this.key)
+		// transpose to grade
+		n.pitch = this.mode[grade-1].transposePitch(n.pitch)
 		n.duration = duration
 		return n
 	}
