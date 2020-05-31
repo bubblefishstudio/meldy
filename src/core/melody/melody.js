@@ -78,7 +78,7 @@ export class MelodyGenerator {
 	}
 
 	get tempo() {
-		return select_range(60, 200, this.arousal)
+		return select_range(60, 180, this.arousal)
 	}
 
 	create_note(grade, duration) {
@@ -121,8 +121,7 @@ export class MelodyGenerator {
 
 	// generate sequence of relative grades
 	/*string[]*/ gen_grades_sequence(/*int*/ N) {
-		//let v = round_over(this.valence, [0, 0.5, 1])
-		let v = 1
+		let v = round_over(this.valence, [0, 1])
 		let g = new Grammar(grades_rules, v)
 		return g.generate_sequence(N)
 	}
