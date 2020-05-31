@@ -4,6 +4,11 @@ import { note, stream, pitch, interval, meter, clef } from "music21j/releases/mu
 import grades_rules from "./grades.yml"
 import durations_rules from "./durations.yml"
 
+// FIX SOUNDFONT URL
+import { common } from "music21j/releases/music21.debug"
+common.urls.soundfontUrl = "./soundfonts/midi-js-soundfonts-master/FluidR3_GM/"
+// END FIX
+
 // TODO: move to a "utils.js" module
 function select_range(low, up, ratio) {
 	const diff = up - low
