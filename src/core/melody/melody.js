@@ -1,4 +1,5 @@
 import { Grammar } from "./grammar"
+import { select_range, round_over } from "../../utils"
 import { note, stream, pitch, interval, meter, clef } from "music21j/releases/music21.debug" // have to use built version because "music21j" is broken
 
 import grades_rules from "./grades.yml"
@@ -9,21 +10,6 @@ import { common } from "music21j/releases/music21.debug"
 common.urls.soundfontUrl = "./soundfonts/midi-js-soundfonts-master/FluidR3_GM/"
 // END FIX
 
-// TODO: move to a "utils.js" module
-function select_range(low, up, ratio) {
-	const diff = up - low
-	const shift = low
-	return Math.round(ratio * diff + shift)
-}
-
-function round_over(val, values) {
-	let rounded = Infinity;
-	for (let step of values) {
-		if (Math.abs(val - rounded) > Math.abs(val - step))
-			rounded = step
-	}
-	return rounded;
-}
 
 export class MelodyGenerator {
 
