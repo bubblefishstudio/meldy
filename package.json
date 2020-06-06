@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "music21j": "^0.9.43",
+    "opensheetmusicdisplay": "^0.7.6",
     "p5": "^1.0.0"
   }
 }
