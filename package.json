@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "postinstall": "sh scripts/dep_fixes.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --open"
