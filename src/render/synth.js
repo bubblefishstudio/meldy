@@ -1,6 +1,6 @@
 import p5 from "p5"
 
-class SoundSynth {
+export class SoundSynth {
 	constructor() {
 		this.synth = new p5.SinOsc()
 		this.bpm = 120
@@ -17,6 +17,3 @@ class SoundSynth {
 		  */
 	}
 }
-
-var p = new SoundSynth()
-p.playSequence([[60, 1], [62, 1], [60, 1]])
