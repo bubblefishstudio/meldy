@@ -1,5 +1,6 @@
 import math
 from random import random
+from os import path
 
 import music21 as m21
 from yaml import safe_load
@@ -7,9 +8,13 @@ from yaml import safe_load
 from .grammar import Grammar
 from .utils import select_range, round_over
 
+# load grammars #
+with open(path.join(path.dirname(__file__), "../data/grades.yml")) as f:
+	_grades_rules = safe_load(f)
 
-_grades_rules = safe_load("../data/grades.yml")
-_duration_rules = safe_load("../data/durations.yml")
+with open(path.join(path.dirname(__file__), "../data/durations.yml")) as f:
+	_duration_rules = safe_load(f)
+#################
 
 class MelodyGenerator:
 
