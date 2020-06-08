@@ -115,7 +115,7 @@ class MelodyGenerator:
 	def _gen_grades_sequence(self, n):
 		v = round_over(self.valence, [0, 1]) # TODO: add 0.5 when done
 		g = Grammar(_grades_rules, v)
-		return g.generate_sequence(n)
+		return [*map(int, g.generate_sequence(n))]
 
 	def _create_note(self, grade, duration):
 		# TODO: rests
