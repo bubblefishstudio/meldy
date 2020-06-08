@@ -8,6 +8,7 @@ class Grammar:
 
 	@staticmethod
 	def pick_string(rule, n):
+		"""pick the corresponding string based on the probability `rule` where the random value is `n`"""
 		low = 0
 		for chance in rule:
 			if n >= low and n < chance[0] + low:
@@ -21,6 +22,7 @@ class Grammar:
 		return Grammar.pick_string(rule, random())
 
 	def apply_to(self, inp):
+		"""apply grammar once to `inp`"""
 		out = []
 		ruleset = self.gram["ruleset"][self.variant]
 		for sym in inp:
@@ -30,6 +32,10 @@ class Grammar:
 		return out
 
 	def generate_sequence(self, size):
+		"""
+		iterativetely apply grammar until reaching `size`
+		or until the grammar stops producing symbols
+		"""
 		seq = []
 		next = [self.pick_starting_symb()]
 		while len(seq) < size:
