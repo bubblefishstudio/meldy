@@ -26,7 +26,7 @@ class Grammar:
 		out = []
 		ruleset = self.gram["ruleset"][self.variant]
 		for sym in inp:
-			rule = ruleset.get(sym, (1,""))
+			rule = ruleset.get(sym, [(1,"")])
 			s = Grammar.pick_string(rule, random())
 			out += s.split(" ")
 		return out

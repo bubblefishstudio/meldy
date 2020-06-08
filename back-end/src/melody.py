@@ -110,7 +110,7 @@ class MelodyGenerator:
 	def _gen_duration_sequence(self, n):
 		a = round_over(self.arousal, [0, 0.5, 1])
 		g = Grammar(_duration_rules, a)
-		return map(float, g.generate_sequence(n))
+		return [*map(float, g.generate_sequence(n))]
 
 	def _gen_grades_sequence(self, n):
 		v = round_over(self.valence, [0, 1]) # TODO: add 0.5 when done
