@@ -2,6 +2,9 @@ import { MelodyGenerator } from "./core/melody/melody"
 import { SoundSynth } from "./render/synth"
 import { draw_score } from "./render/sheet"
 
+// export m21j
+global.m21j = require("music21j")
+
 // TEST MelodyGenerator
 let valence = window.prompt("insert valence (0 to 1, default: 1)")
 let arousal = window.prompt("insert arousal (0 to 1, default: 1)")

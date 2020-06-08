@@ -1,4 +1,3 @@
-import { musicxml } from "music21j"
 import { OpenSheetMusicDisplay } from "opensheetmusicdisplay"
 
 export function draw_score(score) {
@@ -7,8 +6,6 @@ export function draw_score(score) {
 	document.body.appendChild(div)
 
 	// render
-	const xml = (new musicxml.m21ToXml.GeneralObjectExporter(score)).parse()
-	global.xml = xml
 	const osmd = new OpenSheetMusicDisplay(div)
-	osmd.load(xml).then(() => osmd.render())
+	osmd.load(score.write()).then(() => osmd.render())
 }

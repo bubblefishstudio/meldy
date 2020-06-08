@@ -89,6 +89,7 @@ export class MelodyGenerator {
 		let grades = this.gen_grades_sequence(100)
 		let durations = this.gen_duration_sequence(grades.length)
 		let notes = grades.map((grade, idx) => this.create_note(grade, durations[idx]))
+
 		let mot = new stream.Stream()
 		for (const note of notes)
 			mot.append(note)
@@ -102,16 +103,19 @@ export class MelodyGenerator {
 
 	gen_melody() {
 		// create score
-		let mel = new stream.Score()
+		let mel = new stream.Part()
 		mel.tempo = this.tempo
 		mel.timeSignature = this.time_signature
-		mel.clef = new clef.TrebleClef()
+		mel.clef = new clef.TrebleClef() // weird hack
 
 		// generate motif and append to score
 		let mot = this.gen_motif()
-		mel.append(mot)
+		for (let note of mot)
+			mel.append(note)
 
-		mel.makeMeasures({inPlace: true, bestClef: true})
+		// generate measures
+		mel.makeMeasures({inPlace: true})
+
 		return mel
 	}
 
