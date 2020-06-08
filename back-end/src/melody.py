@@ -125,5 +125,5 @@ class MelodyGenerator:
 		n.octave = self.octave
 		# transpose to grade
 		n.pitch = self.mode[grade-1].transposePitch(n.pitch)
-		n.duration = duration
+		n.duration = m21.duration.Duration(duration)
 		return n
