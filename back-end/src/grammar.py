@@ -28,7 +28,8 @@ class Grammar:
 		for sym in inp:
 			rule = ruleset.get(sym, [(1,"")])
 			s = Grammar.pick_string(rule, random())
-			out += s.split(" ")
+			if len(s) > 0:
+				out += s.split(" ")
 		return out
 
 	def generate_sequence(self, size):
