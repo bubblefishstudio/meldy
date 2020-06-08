@@ -8,10 +8,10 @@ from .grammar import Grammar
 from .utils import select_range, round_over
 
 
-class MelodyGenerator:
+_grades_rules = safe_load("../data/grades.yml")
+_duration_rules = safe_load("../data/durations.yml")
 
-	_grades_rules = safe_load("../data/grades.yml")
-	_duration_rules = safe_load("../data/durations.yml")
+class MelodyGenerator:
 
 	def __init__(self, valence, arousal):
 		self.valence = valence
