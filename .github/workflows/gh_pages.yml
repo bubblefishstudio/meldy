@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy Front-End
 
 on:
   push:
@@ -14,11 +14,12 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          cd ./front-end/
           npm install
           npm run build
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3.6.1
         with:
-          publish_dir: ./dist
+          publish_dir: ./front-end/dist
           github_token: ${{ secrets.GITHUB_TOKEN }}
