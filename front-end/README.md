@@ -5,6 +5,6 @@ Front-end
 
 		npm ci
 
-2. build and serve (default localhost:8080)
+2. build and serve (default [localhost:8080](http://localhost:8080))
 
 		npm start

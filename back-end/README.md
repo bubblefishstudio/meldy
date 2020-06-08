@@ -5,6 +5,6 @@ Back-end
 
 	pipenv sync
 
-2. build and serve (default localhost:8000)
+2. build and serve (default [localhost:5000](http://localhost:5000))
 
 	pipenv run server
