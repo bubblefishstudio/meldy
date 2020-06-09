@@ -23,5 +23,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.6.1
         with:
           publish_dir: ./back-end/
-          publish_branck: heroku
+          publish_branch: heroku
           github_token: ${{ secrets.GITHUB_TOKEN }}
