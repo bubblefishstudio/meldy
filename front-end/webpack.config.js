@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ya?ml$/,
+        test: /\.ya?ml$/i,
         type: 'json', // Required by Webpack v4
         use: 'yaml-loader'
 	  },
@@ -34,7 +34,11 @@ module.exports = {
         options: {
           name: '[path][name].[ext]',
         },
-      },
+	  },
+	  {
+		test: /\.html?/i,
+		loader: 'dom-element-loader',
+	  },
     ],
   },
 };
