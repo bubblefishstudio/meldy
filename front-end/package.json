@@ -34,7 +34,6 @@
     "yaml-loader": "^0.6.0"
   },
   "dependencies": {
-    "music21j": "github:mttbernardini/music21j#webpack",
     "opensheetmusicdisplay": "^0.7.6",
     "p5": "^1.0.0"
   }
