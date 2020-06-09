@@ -1,0 +1,27 @@
+name: Build and Deploy Back-End
+
+on:
+  push:
+    branches:
+      - master
+      - backend
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Prepare Files 🔧
+        run: |
+          cd ./back-end/
+          pip3 install pipenv
+          python3 -m pipenv lock -r > requirements.txt
+
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+          publish_dir: ./back-end/
+          publish_branck: heroku
+          github_token: ${{ secrets.GITHUB_TOKEN }}
