@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -16,7 +16,6 @@ jobs:
       - name: Prepare Files 🔧
         run: |
           cd ./back-end/
-          pip3 install setuptools
           pip3 install pipenv
           pipenv lock -r > requirements.txt
           zip deploy.zip *
