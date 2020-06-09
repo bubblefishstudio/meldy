@@ -7,24 +7,20 @@ module.exports = {
   entry: {
     app: './src/main.js',
   },
-  devServer: {
-    contentBase: './dist',
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Nuvola',
-	}),
-	new CopyWebpackPlugin({
-		patterns: [
-			{ from: "node_modules/music21j/soundfonts", to: "soundfonts" },
-		],
-	}),
-  ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+	  template: "./src/main.html",
+	  inject: "head",
+	}),
+  ],
   module: {
     rules: [
       {
