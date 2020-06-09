@@ -1,0 +1,31 @@
+name: Build and Deploy Back-End
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Prepare Files 🔧
+        run: |
+          cd ./back-end/
+          pip3 install pipenv
+          pipenv lock -r > requirements.txt
+          zip deploy.zip *
+
+      - name: Deploy 🚀
+        uses: einaregilsson/beanstalk-deploy@v10
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: nuvola
+          environment_name: Nuvola-env
+          version_label: "Sample Application"
+          region: us-east-2
+          deployment_package: deploy.zip
