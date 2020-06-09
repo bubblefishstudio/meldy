@@ -29,5 +29,6 @@ jobs:
           environment_name: Nuvola-env
           version_label: "nuvola-backend"
           version_description: ${{ github.SHA }}
+          use_existing_version_if_available: true
           region: us-east-2
           deployment_package: deploy.zip
