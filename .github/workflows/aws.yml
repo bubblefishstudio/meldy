@@ -17,7 +17,7 @@ jobs:
         run: |
           cd ./back-end/
           pip3 install pipenv
-          pipenv lock -r > requirements.txt
+          python3 -m pipenv lock -r > requirements.txt
           zip deploy.zip *
 
       - name: Deploy 🚀
