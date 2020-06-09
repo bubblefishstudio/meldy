@@ -16,6 +16,7 @@ jobs:
       - name: Prepare Files 🔧
         run: |
           cd ./back-end/
+          pip3 install setuptools
           pip3 install pipenv
           pipenv lock -r > requirements.txt
           zip deploy.zip *
