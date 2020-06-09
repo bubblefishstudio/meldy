@@ -12,6 +12,7 @@ server = "python -m flask run"
 flask = "*"
 music21 = "*"
 pyyaml = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
