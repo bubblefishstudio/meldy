@@ -27,6 +27,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: nuvola
           environment_name: Nuvola-env
-          version_label: "Sample Application"
+          version_label: "nuvola-backend"
+          version_description: ${{ github.SHA }}
           region: us-east-2
           deployment_package: deploy.zip
