@@ -20,25 +20,10 @@ module.exports = {
 	  template: "./src/main.html",
 	  inject: "head",
 	}),
+	new CopyWebpackPlugin({
+		patterns: [
+			{ from: "src/assets", to: "assets" },
+		],
+	}),
   ],
-  module: {
-    rules: [
-      {
-        test: /\.ya?ml$/i,
-        type: 'json', // Required by Webpack v4
-        use: 'yaml-loader'
-	  },
-	  {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-	  },
-	  {
-		test: /\.html?/i,
-		loader: 'dom-element-loader',
-	  },
-    ],
-  },
 };
