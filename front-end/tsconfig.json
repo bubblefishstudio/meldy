@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
+      "outDir": "./dist/",
       "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "lib": ["es6", "dom", "es2018"],
-      "experimentalDecorators": true,
+      "module": "es6",
+      "target": "es6",
+      "esModuleInterop" : true,
       "moduleResolution": "node",
-      "sourceMap": true,
-      "target": "es6"
+      "sourceMap": true
   },
   "include": [
       "src/**/*"
