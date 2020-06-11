@@ -1,10 +1,7 @@
-import v1 from "./views/request.js"
+import Navigator from "./navigation.js"
 
 window.addEventListener("DOMContentLoaded", () => {
-	let app = document.getElementById("app")
-	let dom1 = v1()
-	if (app.hasChildNodes())
-		app.replaceChild(dom1, app.firstChild)
-	else
-		app.appendChild(dom1)
+	let nav = new Navigator(document.getElementById("app"))
+	nav.goto("request")
+	window.appNavigator = nav
 })
