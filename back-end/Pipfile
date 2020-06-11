@@ -13,6 +13,7 @@ flask = "*"
 music21 = "*"
 pyyaml = "*"
 gunicorn = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"
