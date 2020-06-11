@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
   entry: {
@@ -15,15 +16,18 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-	  template: "./src/main.html",
-	  inject: "head",
+	new CleanWebpackPlugin(),
+	new DefinePlugin({
+		BACKEND_URL: JSON.stringify("http://localhost:5000/"),
 	}),
 	new CopyWebpackPlugin({
 		patterns: [
 			{ from: "src/assets", to: "assets" },
 		],
+	}),
+    new HtmlWebpackPlugin({
+	  template: "./src/main.html",
+	  inject: "head",
 	}),
   ],
 };

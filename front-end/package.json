@@ -7,7 +7,7 @@
     "postinstall": "sh scripts/dep_fixes.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "build:prod": "webpack --mode production --define BACKEND_URL=\"'https://nuvola-backend.herokuapp.com/'\"",
     "start": "webpack-dev-server --open"
   },
   "repository": {
