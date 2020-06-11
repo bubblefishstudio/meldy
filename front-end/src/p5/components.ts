@@ -1,4 +1,5 @@
-import p5 from "p5"
+import { p5InstanceExtensions } from "p5"
+let p5 : p5InstanceExtensions
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // BASE CLASSES
@@ -24,8 +25,8 @@ abstract class UIElement {
 	}
 
 	isOver() : boolean {
-		return mouseX > this.x && mouseX < (this.x + this.w)
-		    && mouseY > this.y && mouseY < (this.y + this.h)
+		return p5.mouseX > this.x && p5.mouseX < (this.x + this.w)
+		    && p5.mouseY > this.y && p5.mouseY < (this.y + this.h)
 	}
 }
 
@@ -154,28 +155,28 @@ class Slider2D extends UIElement {
 	}
 
 	update() : void {
-		if (this.isOver() && mouseIsPressed) {
-			this.setValue(this.thumb_x.position2value(mouseX, this.startX, this.endX),
-			              this.thumb_y.position2value(mouseY, this.startY, this.endY))
+		if (this.isOver() && p5.mouseIsPressed) {
+			this.setValue(this.thumb_x.position2value(p5.mouseX, this.startX, this.endX),
+			              this.thumb_y.position2value(p5.mouseY, this.startY, this.endY))
 		}
 		this.thumb_x.update()
 		this.thumb_y.update()
 	}
 
 	draw() : void {
-		update()
-		noStroke()
+		this.update()
+		p5.noStroke()
 
 		// Rectangle
-		fill(10, 30, 80)
-		rect(this.x, this.y, this.w, this.h)
+		p5.fill(10, 30, 80)
+		p5.rect(this.x, this.y, this.w, this.h)
 
 		// Circle
-		fill(this.isOver ? 150 : 200)
+		p5.fill(this.isOver ? 150 : 200)
 		let xpos = this.thumb_x.value2position(this.thumb_x.drawn_v, this.startX, this.endX)
 		let ypos = this.thumb_y.value2position(this.thumb_y.drawn_v, this.startY, this.endY)
-		ellipseMode(CENTER)
-		ellipse(xpos, ypos, this.thumb_d, this.thumb_d)
+		p5.ellipseMode(p5.CENTER)
+		p5.ellipse(xpos, ypos, this.thumb_d, this.thumb_d)
 	}
 
 	get startX() {
