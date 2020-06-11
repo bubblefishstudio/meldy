@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "opensheetmusicdisplay": "^0.7.6",
+    "osmd-audio-player": "^0.4.1",
     "p5": "^1.0.0"
   }
 }
