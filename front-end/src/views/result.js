@@ -7,7 +7,9 @@ export default class extends BaseView {
 	setup() {
 		// attach musicXML sheet
 		const osmd = new OpenSheetMusicDisplay(this.view.querySelector("#sheet"))
-		osmd.load(this.data).then(() => osmd.render())
+		this.data.text()
+			.then(xml => osmd.load(xml))
+			.then(()  => osmd.render())
 		// bind buttons
 		this.view.querySelector("#play-btn").addEventListener("click", () => this.playScore())
 		this.view.querySelector("#dw-btn").addEventListener("click", () => this.downloadScore())

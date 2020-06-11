@@ -14,15 +14,15 @@ export default class extends BaseView {
 
 	create_melody(e) {
 		let [v, a] = this.mood_picker.readValue()
-		this.fetch_melody(v, a).then((musicxml) => {
-			this.navigator.goto("result", musicxml)
+		this.fetch_melody(v, a).then((response) => {
+			this.navigator.goto("result", response)
 		})
 	}
 
 	async fetch_melody(v, a) {
 		let response = await fetch(BACKEND_URL)
 		if (response.ok)
-			return response.body
+			return response
 		throw new Error(`cannot reach back-end API... url was ${BACKEND_URL} → ${response.status}`)
 	}
 }
