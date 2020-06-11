@@ -5,8 +5,7 @@ export default function() {
 	// @ts-ignore
 	const view = require("dom-element-loader!./request.html").default
 	// attach mood-picker canvas
-	const p5c = new p5(moodPickerSketch, view.querySelector("#mood-picker"))
-	p5c.visible = true
+	new p5(moodPickerSketch, view.querySelector("#mood-picker"))
 	// bind "inspire me" button
 	view.querySelector("#create").addEventListener("click", create_melody)
 	// return DOM
