@@ -97,7 +97,7 @@ class MelodyGenerator:
 	def gen_melody(self):
 		"""generates final melody"""
 		mel = m21.stream.Part()
-		mel.tempo = self.tempo
+		mel.append(m21.tempo.MetronomeMark(number = self.tempo))
 		mel.timeSignature = self.time_signature
 
 		mot = self.gen_motif() # TODO: to change
