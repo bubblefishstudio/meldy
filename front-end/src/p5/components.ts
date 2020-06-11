@@ -4,11 +4,11 @@ let p5 : p5InstanceExtensions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // BASE CLASSES
 
-abstract class UIElement {
-	w : number
-	h : number // width and height
-	x : number
-	y : number // position
+export abstract class UIElement {
+	w : number = 0
+	h : number = 0 // width and height
+	x : number = 0
+	y : number = 0 // position
 
 	abstract draw() : void
 
@@ -33,7 +33,7 @@ abstract class UIElement {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // GROUP
 
-class UIGroup extends UIElement {
+export class UIGroup extends UIElement {
 	elements : UIElement[]
 
 	constructor() {
@@ -50,9 +50,9 @@ class UIGroup extends UIElement {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // STACK
 
-enum Direction { HORIZONTAL, VERTICAL }
+export enum Direction { HORIZONTAL, VERTICAL }
 
-class UIStack extends UIGroup {
+export class UIStack extends UIGroup {
 	margin : number
 	spacing : number
 	dir : Direction
@@ -100,7 +100,7 @@ class UIStack extends UIGroup {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // FLEXBOX
 
-class UIFlexbox extends UIStack {
+export class UIFlexbox extends UIStack {
 
 	constructor(m : number, s : number, d : Direction) {
 		super(m, s, d)
@@ -128,10 +128,10 @@ class UIFlexbox extends UIStack {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // SLIDERS
 
-class Slider2D extends UIElement {
+export class Slider2D extends UIElement {
 	thumb_x : SliderValue
 	thumb_y : SliderValue
-	onChange : (arg0 : UIElement) => void
+	onChange? : (arg0 : UIElement) => void
 
 	thumb_d = 30 // diameter of circle
 
@@ -140,13 +140,12 @@ class Slider2D extends UIElement {
 		this.thumb_x = new SliderValue(min_v, max_v, inertia)
 		this.thumb_y = new SliderValue(min_v, max_v, inertia)
 		this.thumb_d = thumb_diameter
-		this.onChange = null
 	}
 
 	setValue(new_vx : number, new_vy : number) : void {
 		let changed_x = this.thumb_x.setValue(new_vx)
 		let changed_y = this.thumb_y.setValue(new_vy)
-		if (this.onChange != null && (changed_x || changed_y))
+		if (this.onChange && (changed_x || changed_y))
 			this.onChange(this)
 	}
 
