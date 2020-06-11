@@ -13,7 +13,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+	contentBase: path.join(__dirname, 'dist'),
+	writeToDisk: true,
   },
   plugins: [
 	new CleanWebpackPlugin(),
