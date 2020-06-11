@@ -12,17 +12,31 @@ export default class extends BaseView {
 		this.view.querySelector("#create").addEventListener("click", () => this.create_melody())
 	}
 
-	create_melody(e) {
+	create_melody() {
+		// update ui
+		this.view.classList.remove("error")
+		this.view.classList.add("loading")
+		this.view.querySelector("#create").disabled = true
+		// fetch
 		let [v, a] = this.mood_picker.readValue()
 		this.fetch_melody(v, a).then((response) => {
 			this.navigator.goto("result", response)
+		}).catch(e => {
+			// update ui
+			this.view.classList.remove("loading")
+			this.view.classList.add("error")
+			this.view.querySelector("#create").disabled = false
+			setTimeout(() => this.view.classList.remove("error"), 1000)
 		})
 	}
 
 	async fetch_melody(v, a) {
-		let response = await fetch(BACKEND_URL)
-		if (response.ok)
-			return response
-		throw new Error(`cannot reach back-end API... url was ${BACKEND_URL} → ${response.status}`)
+		try {
+			let response = await fetch(BACKEND_URL)
+			if (response.ok)
+				return response
+		} catch (e) {
+			throw new Error(`Cannot reach back-end API (${BACKEND_URL} → http status: ${response.status})`)
+		}
 	}
 }
