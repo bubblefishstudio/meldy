@@ -1,20 +1,17 @@
 import { OpenSheetMusicDisplay } from "opensheetmusicdisplay"
 
-export default class {
+import BaseView from "./base.js"
 
-	constructor(nav, data) {
-		this.navigator = nav
-		const view = require("dom-element-loader!./result.html").default.cloneNode(true)
+export default class extends BaseView {
+
+	setup() {
 		// attach musicXML sheet
-		this.score = data
-		const osmd = new OpenSheetMusicDisplay(view.querySelector("#sheet"))
-		osmd.load(this.score).then(() => osmd.render())
+		const osmd = new OpenSheetMusicDisplay(this.view.querySelector("#sheet"))
+		osmd.load(this.data).then(() => osmd.render())
 		// bind buttons
-		view.querySelector("#play-btn").addEventListener("click", () => this.playScore())
-		view.querySelector("#dw-btn").addEventListener("click", () => this.downloadScore())
-		view.querySelector("#reset-btn").addEventListener("click", () => this.dropScore())
-		// return DOM
-		return view
+		this.view.querySelector("#play-btn").addEventListener("click", () => this.playScore())
+		this.view.querySelector("#dw-btn").addEventListener("click", () => this.downloadScore())
+		this.view.querySelector("#reset-btn").addEventListener("click", () => this.dropScore())
 	}
 
 	playScore() {

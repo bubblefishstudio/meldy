@@ -1,18 +1,15 @@
 import p5 from "p5"
 import moodPickerSketch from "../p5/mood_picker_sketch.js"
 
-export default class {
+import BaseView from "./base.js"
 
-	constructor(nav, data) {
-		this.navigator = nav
-		const view = require("dom-element-loader!./request.html").default.cloneNode(true)
+export default class extends BaseView {
+
+	setup() {
 		// attach mood-picker canvas
-		this.mood_picker = new p5(moodPickerSketch, view.querySelector("#mood-picker"))
-		//view.querySelector("#mood-picker > canvas").style.visibility = "visible	"
+		this.mood_picker = new p5(moodPickerSketch, this.view.querySelector("#mood-picker"))
 		// bind "inspire me" button
-		view.querySelector("#create").addEventListener("click", () => this.create_melody())
-		// return DOM
-		return view
+		this.view.querySelector("#create").addEventListener("click", () => this.create_melody())
 	}
 
 	create_melody(e) {
