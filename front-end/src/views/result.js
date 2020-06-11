@@ -26,5 +26,5 @@ function downloadScore() {
 }
 
 function dropScore() {
-
+	navigator.goto("request")
 }
