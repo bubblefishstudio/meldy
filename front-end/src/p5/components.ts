@@ -1,5 +1,9 @@
-import { p5InstanceExtensions } from "p5"
-let p5 : p5InstanceExtensions
+import p5class from "p5"
+
+let p5 : p5class // to be defined by user module
+export function setP5instance(p5i : p5class) {
+	p5 = p5i
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // BASE CLASSES
