@@ -1,5 +1,5 @@
 import p5 from "p5"
-import moodPickerSketch from "../p5/mood_picker_sketch.ts"
+import moodPickerSketch from "../p5/mood_picker_sketch.js"
 
 let mood_picker;
 
@@ -7,7 +7,7 @@ export default function() {
 	// @ts-ignore
 	const view = require("dom-element-loader!./request.html").default
 	// attach mood-picker canvas
-	new p5(moodPickerSketch, view.querySelector("#mood-picker"))
+	mood_picker = new p5(moodPickerSketch, view.querySelector("#mood-picker"))
 	// bind "inspire me" button
 	view.querySelector("#create").addEventListener("click", create_melody)
 	// return DOM
@@ -15,7 +15,7 @@ export default function() {
 }
 
 function create_melody(e) {
-
+	console.log(`awesome! this is the value I read: ${mood_picker.readValue()}`)
 }
 
 async function fetch_melody() {
