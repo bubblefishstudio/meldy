@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/mttbernardini/nuvola#readme",
   "devDependencies": {
+    "@types/p5": "^0.9.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
