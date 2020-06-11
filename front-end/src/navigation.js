@@ -5,8 +5,8 @@ export default class Navigation {
 	}
 
 	async goto(page, data) {
-		let pageLoader = (await import(`./views/${page}.js`)).default
-		let dom = pageLoader(this, data)
+		let PageLoader = (await import(`./views/${page}.js`)).default
+		let dom = new PageLoader(this, data)
 		this._replaceDOM(dom)
 	}
 

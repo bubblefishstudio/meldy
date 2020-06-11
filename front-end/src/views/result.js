@@ -1,30 +1,32 @@
 import { OpenSheetMusicDisplay } from "opensheetmusicdisplay"
 
-let navigator, score
+export default class {
 
-export default function(nav, data) {
-	navigator = nav
-	const view = require("dom-element-loader!./result.html").default
-	// attach musicXML sheet
-	score = data
-	const osmd = new OpenSheetMusicDisplay(view.querySelector("#sheet"))
-	osmd.load(score).then(() => osmd.render())
-	// bind buttons
-	view.querySelector("#play-btn").addEventListener("click", playScore)
-	view.querySelector("#dw-btn").addEventListener("click", downloadScore)
-	view.querySelector("#reset-btn").addEventListener("click", dropScore)
-	// return DOM
-	return view
-}
+	constructor(nav, data) {
+		this.navigator = nav
+		const view = require("dom-element-loader!./result.html").default.cloneNode(true)
+		// attach musicXML sheet
+		this.score = data
+		const osmd = new OpenSheetMusicDisplay(view.querySelector("#sheet"))
+		osmd.load(this.score).then(() => osmd.render())
+		// bind buttons
+		view.querySelector("#play-btn").addEventListener("click", () => this.playScore())
+		view.querySelector("#dw-btn").addEventListener("click", () => this.downloadScore())
+		view.querySelector("#reset-btn").addEventListener("click", () => this.dropScore())
+		// return DOM
+		return view
+	}
 
-function playScore() {
+	playScore() {
 
-}
+	}
 
-function downloadScore() {
+	downloadScore() {
 
-}
+	}
 
-function dropScore() {
-	navigator.goto("request")
+	dropScore() {
+		this.navigator.goto("request")
+	}
+
 }
