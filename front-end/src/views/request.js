@@ -1,5 +1,7 @@
 import p5 from "p5"
-import moodPickerSketch from "../p5/mood_picker.ts"
+import moodPickerSketch from "../p5/mood_picker_sketch.ts"
+
+let mood_picker;
 
 export default function() {
 	// @ts-ignore
