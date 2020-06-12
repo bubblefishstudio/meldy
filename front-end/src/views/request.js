@@ -32,7 +32,7 @@ export default class extends BaseView {
 
 	async fetch_melody(v, a) {
 		try {
-			let response = await fetch(BACKEND_URL)
+			let response = await fetch(BACKEND_URL + `?valence=${v}&arousal=${a}`)
 			if (response.ok)
 				return response
 		} catch (e) {
