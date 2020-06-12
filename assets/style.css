@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+.error-msg {
+	animation-name: show-then-hide;
+	animation-direction: reverse;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.error .error-msg {
+	animation-direction: normal;
+}
+
+@keyframes show-then-hide {
+	from {
+		opacity: 0;
+		display: none;
+	}
+	to {
+		opacity: 1;
+		display: initial;
+	}
+}
