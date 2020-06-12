@@ -20,6 +20,7 @@ export default class extends BaseView {
 		// fetch
 		let [v, a] = this.mood_picker.readValue()
 		this.fetch_melody(v, a).then((response) => {
+			this.mood_picker.remove()
 			this.navigator.goto("result", response)
 		}).catch(e => {
 			// update ui
