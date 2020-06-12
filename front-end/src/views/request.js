@@ -26,7 +26,7 @@ export default class extends BaseView {
 			this.view.classList.remove("loading")
 			this.view.classList.add("error")
 			this.view.querySelector("#create").disabled = false
-			setTimeout(() => this.view.classList.remove("error"), 1000)
+			setTimeout(() => this.view.classList.remove("error"), 2000)
 		})
 	}
 

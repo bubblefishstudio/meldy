@@ -10,9 +10,12 @@ export default class extends BaseView {
 		const osmd = new OpenSheetMusicDisplay(this.view.querySelector("#sheet"))
 		this.player = new AudioPlayer()
 		this.data.text()
-			.then(xml => osmd.load(xml))
-			.then(()  => osmd.render())
-			.then(()  => this.player.loadScore(osmd))
+			.then(xml => {
+				this.musicxml = xml
+				osmd.load(this.musicxml)
+			})
+			.then(() => osmd.render())
+			.then(() => this.player.loadScore(osmd))
 		// bind buttons
 		this.view.querySelector("#play-btn").addEventListener("click", (e) => this.playScore(e))
 		this.view.querySelector("#dw-btn").addEventListener("click", () => this.downloadScore())
@@ -20,14 +23,23 @@ export default class extends BaseView {
 	}
 
 	playScore(e) {
-		if (this.player.state === "STOPPED" || this.player.state === "PAUSED")
+		if (this.player.state === "STOPPED" || this.player.state === "PAUSED") {
 			this.player.play()
-		else
+			e.target.textContent = "Stop"
+		} else {
 			this.player.stop()
+			e.target.textContent = "Play"
+		}
 	}
 
 	downloadScore() {
-
+		// create blob object
+		let url = URL.createObjectURL(new Blob([this.musicxml], {type: "application/vnd.recordare.musicxml"}))
+		// create fake anchor to download the blob
+		let anchor = document.createElement("a")
+		anchor.setAttribute("href", url)
+		anchor.setAttribute("download", "generated-score.musicxml")
+		anchor.click()
 	}
 
 	dropScore() {
