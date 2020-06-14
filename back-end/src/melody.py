@@ -102,7 +102,7 @@ class MelodyGenerator:
 
 		mot = self.gen_motif() # TODO: to change
 		mel.append(mot)
-		mel.makeMeasures(inPlace=True)
+		mel.makeMeasures(inPlace=True, bestClef=True)
 
 		return mel
 
