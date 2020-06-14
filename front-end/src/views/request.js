@@ -14,9 +14,8 @@ export default class extends BaseView {
 
 	create_melody() {
 		// update ui
-		this.view.classList.remove("error")
-		this.view.classList.add("loading")
-		this.view.querySelector("#create").disabled = true
+		this.show_error(false)
+		this.set_loading(true)
 		// fetch
 		let [v, a] = this.mood_picker.readValue()
 		this.fetch_melody(v, a).then((response) => {
@@ -24,11 +23,22 @@ export default class extends BaseView {
 			this.navigator.goto("result", response)
 		}).catch(e => {
 			// update ui
-			this.view.classList.remove("loading")
-			this.view.classList.add("error")
-			this.view.querySelector("#create").disabled = false
-			setTimeout(() => this.view.classList.remove("error"), 2000)
+			this.set_loading(false)
+			this.show_error(true)
 		})
+	}
+
+	show_error(show) {
+		this.view.classList.toggle("error", show)
+		if (this.removeErrorClass)
+			clearTimeout(this.removeErrorClass)
+		if (show)
+			this.removeErrorClass = setTimeout(() => this.view.classList.remove("error"), 2000)
+	}
+
+	set_loading(loading) {
+		this.view.classList.toggle("loading", loading)
+		this.view.querySelector("#create").disabled = loading
 	}
 
 	async fetch_melody(v, a) {
