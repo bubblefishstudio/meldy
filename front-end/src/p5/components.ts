@@ -169,13 +169,16 @@ export class Slider2D extends UIElement {
 	draw() : void {
 		this.update()
 		p5.noStroke()
+		p5.fill(0)
 
 		// Rectangle
-		p5.fill(10, 30, 80)
+		// @ts-ignore
+		p5.erase()
 		p5.rect(this.x, this.y, this.w, this.h)
+		// @ts-ignore
+		p5.noErase()
 
 		// Circle
-		p5.fill(this.isOver ? 150 : 200)
 		let xpos = this.thumb_x.value2position(this.thumb_x.drawn_v, this.startX, this.endX)
 		let ypos = this.thumb_y.value2position(this.thumb_y.drawn_v, this.startY, this.endY)
 		p5.ellipseMode(p5.CENTER)
@@ -209,13 +212,14 @@ class SliderValue {
 	max_v : number
 	inertia : number
 
-	private value : number = 0
-	private drawn_value : number = 0
+	private value
+	private drawn_value
 
 	constructor(min_v : number, max_v : number, inertia : number) {
 		this.min_v = min_v
 		this.max_v = max_v
 		this.inertia = inertia
+		this.value = this.drawn_value = (this.max_v - this.min_v) / 2
 	}
 
 	get v() {
