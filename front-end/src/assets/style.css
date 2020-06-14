@@ -1,3 +1,5 @@
+/* ~~~ OVERALL STRUCTURE ~~~ */
+
 * {
 	box-sizing: border-box;
 }
@@ -29,14 +31,56 @@ body {
 	text-align: center;
 }
 
+
+/* ~~~ MOOD PICKER ~~~ */
+
+.mood-picker {
+	position: relative;
+}
+
+.mood {
+	position: absolute;
+	font-size: 80%;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 5px;
+	--spacing: 20px;
+}
+
+.happy-mood {
+	top: var(--spacing);
+	right: var(--spacing);
+}
+
+.peace-mood {
+	bottom: var(--spacing);
+	right: var(--spacing);
+}
+
+.upset-mood {
+	top: var(--spacing);
+	left: var(--spacing);
+}
+
+.sad-mood {
+	bottom: var(--spacing);
+	left: var(--spacing);
+}
+
 .mood-picker canvas {
 	background: rgba(0,0,0,0.1);
 	filter: invert(50%) sepia() saturate(250%);
 }
 
+
+/* ~~~ MUSIC SHEET ~~~ */
+
 .sheet {
 	width: 90%;
 }
+
+
+/* ~~~ BUTTONS ~~~ */
 
 .btn {
 	background: #6b3318;
@@ -53,6 +97,9 @@ body {
 .btn:active {
 	border-style: inset;
 }
+
+
+/* ~~~ STATES ~~~ */
 
 .loading .btn-go {
 	border-style: inset;
