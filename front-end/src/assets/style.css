@@ -9,6 +9,8 @@ body {
 	height: 100vh;
 	background: #fffad0;
 	font-family: Helvetica, sans-serif;
+	color: #532b00;
+	font-weight: bold;
 }
 
 .wrapper {
@@ -27,6 +29,11 @@ body {
 	text-align: center;
 }
 
+.mood-picker canvas {
+	background: rgba(0,0,0,0.1);
+	filter: invert(50%) sepia() saturate(250%);
+}
+
 .sheet {
 	width: 90%;
 }
@@ -37,6 +44,10 @@ body {
 	padding: 5px;
 	color: #fff;
 	font-size: 100%;
+}
+
+.btn::-moz-focus-inner {
+  border: 0;
 }
 
 .btn:active {
