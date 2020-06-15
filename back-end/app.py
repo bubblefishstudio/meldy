@@ -4,6 +4,7 @@ from flask import Flask, Response, request
 from flask_cors import cross_origin
 
 from src.melody import MelodyGenerator
+import random
 
 app = Flask(__name__)
 
