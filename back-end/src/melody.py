@@ -21,7 +21,7 @@ class MelodyGenerator:
 	def __init__(self, valence, arousal):
 		self.valence = valence
 		self.arousal = arousal
-		self.key = math.floor(random() * 12)
+		self.root = math.floor(random() * 12)
 
 	@property
 	def valence(self):
@@ -44,12 +44,12 @@ class MelodyGenerator:
 		self._arousal = a
 
 	@property
-	def key(self):
-		return self._key
+	def root(self):
+		return self._root
 
-	@key.setter
-	def key(self, k):
-		self._key = m21.pitch.Pitch(k)
+	@root.setter
+	def root(self, k):
+		self._root = m21.pitch.Pitch(k)
 
 	@property
 	def octave(self):
@@ -57,17 +57,12 @@ class MelodyGenerator:
 
 	@property
 	def mode(self):
-		modes = [ # sorted from darkest to brightest
-			["P1", "m2", "m3", "P4", "d5", "m6", "m7", "P8"],
-			["P1", "m2", "m3", "P4", "P5", "m6", "m7", "P8"],
-			["P1", "M2", "m3", "P4", "P5", "m6", "m7", "P8"],
-			["P1", "M2", "m3", "P4", "P5", "M6", "m7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "m7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
-		]
-		picked_mode = modes[select_range(1, len(modes), self.valence) - 1]
-		return [*map(m21.interval.Interval, picked_mode)]
+		MODES = ["locrian", "phrygian", "aeolian", "dorian", "myxolydian", "ionian", "lydian"]
+		return MODES[select_range(2, len(MODES), self.arousal) - 1]
+
+	@property
+	def key(self):
+		return m21.key.Key(self.root, self.mode)
 
 	@property
 	def time_signature(self):
@@ -99,6 +94,7 @@ class MelodyGenerator:
 		mel = m21.stream.Part()
 		mel.tempo = self.tempo
 		mel.timeSignature = self.time_signature
+		mel.keySignature = self.key
 
 		mot = self.gen_motif() # TODO: to change
 		mel.append(mot)
@@ -120,10 +116,7 @@ class MelodyGenerator:
 	def _create_note(self, grade, duration):
 		# TODO: rests
 		n = m21.note.Note()
-		# set starting point
-		n.pitch = self.key
-		n.octave = self.octave
-		# transpose to grade
-		n.pitch = self.mode[grade-1].transposePitch(n.pitch)
+		n.pitch = self.key.pitchFromDegree(grade)
+		n.octave = self.octave # TOFIX: set octave before, otherwise all grades will be within the same octave
 		n.duration = m21.duration.Duration(duration)
 		return n
