@@ -110,7 +110,7 @@ body {
 
 .star-img {
 	width: 60px;
-	left: -25px;
+	left: calc(50% - 80px);
 	top: -40px;
 	z-index: -1;
 }
