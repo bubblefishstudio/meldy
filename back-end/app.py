@@ -1,10 +1,11 @@
 from tempfile import NamedTemporaryFile
+from datetime import date
 
 from flask import Flask, Response, request
 from flask_cors import cross_origin
+import music21 as m21
 
 from src.melody import MelodyGenerator
-import random
 
 app = Flask(__name__)
 
@@ -15,6 +16,14 @@ def make_melody():
 	arousal = request.args.get("arousal", default=1, type=float)
 	mg = MelodyGenerator(valence, arousal)
 	m = mg.gen_melody()
+
+	# TODO: move this where appropriate
+	meta = m21.metadata.Metadata()
+	meta.title = "Mood of the day" # TODO: maybe we can generate random titles
+	meta.composer = "Nuvola"
+	meta.date = date.today().strftime("%Y/%m/%d")
+	m.metadata = meta
+
 	with NamedTemporaryFile() as t:
 		m.write("musicxml", fp=t.name)
 		t.seek(0)

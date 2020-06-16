@@ -21,7 +21,7 @@ class MelodyGenerator:
 	def __init__(self, valence, arousal):
 		self.valence = valence
 		self.arousal = arousal
-		self.key = math.floor(random() * 12)
+		self.root = math.floor(random() * 12)
 
 	@property
 	def valence(self):
@@ -44,12 +44,13 @@ class MelodyGenerator:
 		self._arousal = a
 
 	@property
-	def key(self):
-		return self._key
+	def root(self):
+		return m21.pitch.Pitch(self._root)
 
-	@key.setter
-	def key(self, k):
-		self._key = m21.pitch.Pitch(k)
+	@root.setter
+	def root(self, k):
+		m21.pitch.Pitch(k) # for testing value and raising exception if needed
+		self._root = k
 
 	@property
 	def octave(self):
@@ -57,17 +58,14 @@ class MelodyGenerator:
 
 	@property
 	def mode(self):
-		modes = [ # sorted from darkest to brightest
-			["P1", "m2", "m3", "P4", "d5", "m6", "m7", "P8"],
-			["P1", "m2", "m3", "P4", "P5", "m6", "m7", "P8"],
-			["P1", "M2", "m3", "P4", "P5", "m6", "m7", "P8"],
-			["P1", "M2", "m3", "P4", "P5", "M6", "m7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "m7", "P8"],
-			["P1", "M2", "M3", "P4", "P5", "M6", "M7", "P8"],
-			["P1", "M2", "M3", "A4", "P5", "M6", "M7", "P8"],
-		]
-		picked_mode = modes[select_range(1, len(modes), self.valence) - 1]
-		return [*map(m21.interval.Interval, picked_mode)]
+		MODES = ["locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian"]
+		return MODES[select_range(1, len(MODES), self.valence) - 1]
+
+	@property
+	def key(self):
+		k = m21.key.Key(self.root, self.mode)
+		k.tonic.octave = self.octave
+		return k
 
 	@property
 	def time_signature(self):
@@ -97,8 +95,11 @@ class MelodyGenerator:
 	def gen_melody(self):
 		"""generates final melody"""
 		mel = m21.stream.Part()
+		mel.append(m21.instrument.Piano())
 		mel.append(m21.tempo.MetronomeMark(number = self.tempo))
 		mel.timeSignature = self.time_signature
+		# TODO: OSMD has issues if using self.key directly (because of the mode?)
+		mel.keySignature = m21.key.KeySignature(m21.key.pitchToSharps(self.root, self.mode))
 
 		mot = self.gen_motif() # TODO: to change
 		mel.append(mot)
@@ -120,10 +121,7 @@ class MelodyGenerator:
 	def _create_note(self, grade, duration):
 		# TODO: rests
 		n = m21.note.Note()
-		# set starting point
-		n.pitch = self.key
-		n.octave = self.octave
-		# transpose to grade
-		n.pitch = self.mode[grade-1].transposePitch(n.pitch)
+		n.pitch = self.key.pitchFromDegree(grade)
+		n.octave += grade // 8 # transpose octaves, cause `pitchFromDegree` doesn't do that apparently
 		n.duration = m21.duration.Duration(duration)
 		return n
