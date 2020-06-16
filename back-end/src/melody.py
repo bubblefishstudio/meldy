@@ -63,9 +63,9 @@ class MelodyGenerator:
 
 	@property
 	def key(self):
-		root_with_octave = self.root
-		root_with_octave.octave = self.octave
-		return m21.key.Key(root_with_octave, self.mode)
+		k = m21.key.Key(self.root, self.mode)
+		k.tonic.octave = self.octave
+		return k
 
 	@property
 	def time_signature(self):
