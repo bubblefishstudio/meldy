@@ -59,7 +59,7 @@ class MelodyGenerator:
 	@property
 	def mode(self):
 		MODES = ["locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian"]
-		return MODES[select_range(2, len(MODES), self.arousal) - 1]
+		return MODES[select_range(1, len(MODES), self.valence) - 1]
 
 	@property
 	def key(self):
