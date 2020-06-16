@@ -45,11 +45,12 @@ class MelodyGenerator:
 
 	@property
 	def root(self):
-		return self._root
+		return m21.pitch.Pitch(self._root)
 
 	@root.setter
 	def root(self, k):
-		self._root = m21.pitch.Pitch(k)
+		m21.pitch.Pitch(k) # for testing value and raising exception if needed
+		self._root = k
 
 	@property
 	def octave(self):
