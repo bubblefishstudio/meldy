@@ -5,6 +5,7 @@ verify_ssl = true
 
 [scripts]
 server = "env FLASK_ENV=development python -m flask run"
+profile = "env PROFILE=1 pipenv run server"
 
 [dev-packages]
 
