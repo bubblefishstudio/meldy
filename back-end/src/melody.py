@@ -98,7 +98,8 @@ class MelodyGenerator:
 		mel.append(m21.instrument.Piano())
 		mel.append(m21.tempo.MetronomeMark(number = self.tempo))
 		mel.timeSignature = self.time_signature
-		mel.keySignature = self.key
+		# TODO: OSMD has issues if using self.key directly (because of the mode?)
+		mel.keySignature = m21.key.KeySignature(m21.key.pitchToSharps(self.root, self.mode))
 
 		mot = self.gen_motif() # TODO: to change
 		mel.append(mot)
