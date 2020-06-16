@@ -1,0 +1,172 @@
+/* ~~~ OVERALL STRUCTURE ~~~ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #fffad0;
+	background-image: url("bg.png");
+	background-blend-mode: luminosity;
+	font-family: Helvetica, sans-serif;
+	color: #532b00;
+	font-weight: bold;
+}
+
+.view {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	align-items: center;
+	min-width: 600px;
+	max-width: 1000px;
+}
+
+.row {
+	margin: 1.5em 0;
+	text-align: center;
+}
+
+
+/* ~~~ MOOD PICKER ~~~ */
+
+.mood-picker {
+	position: relative;
+}
+
+.mood {
+	position: absolute;
+	font-size: 80%;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 5px;
+	--spacing: 20px;
+}
+
+.happy-mood {
+	top: var(--spacing);
+	right: var(--spacing);
+}
+
+.peace-mood {
+	bottom: var(--spacing);
+	right: var(--spacing);
+}
+
+.upset-mood {
+	top: var(--spacing);
+	left: var(--spacing);
+}
+
+.sad-mood {
+	bottom: var(--spacing);
+	left: var(--spacing);
+}
+
+.mood-picker canvas {
+	background: rgba(0,0,0,0.1);
+	filter: invert(50%) sepia() saturate(250%);
+}
+
+
+/* ~~~ MUSIC SHEET ~~~ */
+
+.sheet {
+	width: 90%;
+}
+
+
+/* ~~~ BUTTONS ~~~ */
+
+.btn {
+	background: #6b3318;
+	border: none;
+	box-shadow: 0 0 2px rgba(0,0,0,0.8);
+	padding: 5px;
+	color: #fff;
+	font-size: 100%;
+}
+
+.btn::-moz-focus-inner {
+  border: 0;
+}
+
+.btn:active, .loading .btn {
+	box-shadow: none;
+}
+
+
+/* ~~~ ICONS ~~~ */
+
+.has-icons {
+	position: relative;
+}
+
+.has-icons img {
+	position: absolute;
+}
+
+.star-img {
+	width: 60px;
+	left: calc(50% - 80px);
+	top: -40px;
+	z-index: -1;
+}
+
+.fish-img {
+	right: 105px;
+	top: 180px;
+	width: 40px;
+	transform: rotate(30deg);
+}
+
+
+/* ~~~ STATES ~~~ */
+
+.loading .btn-go {
+	background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABTUlEQVQ4y63UyU4bURCF4Y8CYUbFTLZgFwllh8SD8moss4gEG0BixjajY4jNgmoETnuS3Jvbuvd01V9Vp+9Mr9c7wB/8xhmeMIdN/MI+fqKLYxziCE0ENrCLPewEGrhKwV8fTwVV1LGeH97jMvXtPl0tV5HBrvGIt6RbxVYGXM4A1xmwhQ5msZKV1LGE5xhCV8MP/EvNCS4ycRfz/XRoRAldkbWGxTw7wylukzbK6HAVQ+iq6OEO57jJgXXLelfMIkrotlJYZL3Iklt4HdS7YhYxgG4t95pfetxO4kr29j86NGME3WX2+GGE7tMpMYSuMcIBpboYJ+u4dHiLadL54qep0GEupkmHSkxIVx+liwnpqiX+/KaLMehWU1PcPC/pz5uyKmICuo0cYiuTlupiTLrtfH9NsttBDoghdAtJX8+LYD7Lbeav2MFMvwPeAVVgu5kUrJMbAAAAAElFTkSuQmCC');
+	background-blend-mode: soft-light;
+	background-repeat: repeat;
+	animation-name: loading;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+	animation-timing-function: linear;
+}
+
+.error-msg {
+	display: none;
+	animation-delay: 500ms;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+	color: red;
+	font-style: italic;
+	font-size: 90%;
+}
+
+.error .error-msg {
+	display: block;
+	animation-name: hide;
+}
+
+@keyframes hide {
+	from {
+		opacity: 1;
+		display: initial;
+	}
+	to {
+		opacity: 0;
+		display: none;
+	}
+}
+
+@keyframes loading {
+	from {
+		background-position: 19px, 0;
+	}
+	to {
+		background-position: 0, 0;
+	}
+}
