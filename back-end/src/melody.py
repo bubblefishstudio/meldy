@@ -115,7 +115,7 @@ class MelodyGenerator:
 		return [*map(float, g.generate_sequence(n))]
 
 	def _gen_grades_sequence(self, n):
-		v = round_over(self.valence, [0, 1]) # TODO: add 0.5 when done
+		v = round_over(self.valence, [0, 0.3, 1])
 		g = Grammar(_grades_rules, v)
 		return [*map(int, g.generate_sequence(n))]
 
