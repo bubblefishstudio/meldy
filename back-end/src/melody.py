@@ -63,7 +63,9 @@ class MelodyGenerator:
 
 	@property
 	def key(self):
-		return m21.key.Key(self.root, self.mode)
+		root_with_octave = self.root
+		root_with_octave.octave = self.octave
+		return m21.key.Key(root_with_octave, self.mode)
 
 	@property
 	def time_signature(self):
@@ -119,6 +121,6 @@ class MelodyGenerator:
 		# TODO: rests
 		n = m21.note.Note()
 		n.pitch = self.key.pitchFromDegree(grade)
-		n.octave = self.octave # TOFIX: set octave before, otherwise all grades will be within the same octave
+		n.octave += grade // 8 # transpose octaves, cause `pitchFromDegree` doesn't do that apparently
 		n.duration = m21.duration.Duration(duration)
 		return n
