@@ -79,11 +79,11 @@ class MelodyGenerator:
 
 	def gen_motif(self):
 		"""generates a motif, shortest subdivision"""
-		grades = self._gen_grades_sequence(100) # TODO: change number
+		grades = self._gen_grades_sequence(100) # TODO: change number maybe
 		durations = self._gen_duration_sequence(len(grades))
 		mot = m21.stream.Stream()
 
-		for i in range(len(grades)):
+		for i in range(min(len(grades), len(durations))): # TODO: lengths should be equal in theory, in practice sometimes is not true (some bug)
 			mot.append(self._create_note(grades[i], durations[i]))
 
 		return mot
