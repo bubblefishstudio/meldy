@@ -113,8 +113,6 @@ class MelodyGenerator:
 		last_meas.append(self._create_note(1,4))
 		last_meas.rightBarline = m21.bar.Barline("final")
 
-		print(mel.show("text"))
-
 		# return generated melody
 		return mel
 
