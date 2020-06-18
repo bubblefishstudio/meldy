@@ -1,20 +1,26 @@
-# ACTAM Project
+Meldy - A mood-based melody generator
+=====================================
 
-## Intro
+Meldy is a simple melody generator, based on a user-provided mood expressed in the valence-arousal plane.
+It's developed as project for "Advanced Coding Tools and Methodologies" and "Computer Music: Representations and Models" courses.
 
-## Demo Video
+Demo Video
+----------
 
-## Back End
-* Python with Music21(a Python-based toolkit for computer-aided musicology)
-* dealing with the logic of music generation
+TODO
 
-## Front End
-* JavaScript, CSS and HTML
-* rendering of the music sheet on a webpage
-*  visualization the graphic interface
+Components
+----------
 
-## Ref and Links
+### Back-End
+* Python3 Flask application.
+* Music21: a Python-based toolkit for computer-aided musicology.
+* Deals with the logic of music generation.
 
-=============
+### Front-End
+* JavaScript, CSS and HTML single-page webapp.
+* OpenSheetMusicDisplay: rendering of the music sheet on webpage.
+* Deals with user interaction for gathering the mood and providing playback through the generated sheet.
 
-Made by Matteo Bernardini & Yilin Zhu
+----
+Made by Matteo Bernardini & Yilin Zhu, 2020
