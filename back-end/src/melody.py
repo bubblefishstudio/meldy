@@ -21,7 +21,7 @@ class MelodyGenerator:
 	def __init__(self, valence, arousal):
 		self.valence = valence
 		self.arousal = arousal
-		self.root = math.floor(random() * 12)
+		self.base_root = math.floor(random() * 12)
 
 	@property
 	def valence(self):
@@ -45,12 +45,20 @@ class MelodyGenerator:
 
 	@property
 	def root(self):
-		return m21.pitch.Pitch(self._root)
+		# some notes are not allowed in certain modes
+		# e.g. G# mixolydian is legit (= C# ionian), but G# ionian is not (must be Ab ionian)
+		#
+		# simple fix: rotate base_root based on the current mode, to obtain actual root
+		# e.g. if base_root is "C#" and mode is "mixolydian", then root is "G#"
+		base_root = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")[self._root]
+		return m21.pitch.Pitch(base_root) # TODO
 
-	@root.setter
-	def root(self, k):
-		m21.pitch.Pitch(k) # for testing value and raising exception if needed
+	def base_root(self, k):
+		if not (k >= 0 and k < 12):
+			raise ValueError("base_root note should be a value between 0 and 11")
 		self._root = k
+
+	base_root = property(None, base_root)
 
 	@property
 	def octave(self):
@@ -58,7 +66,7 @@ class MelodyGenerator:
 
 	@property
 	def mode(self):
-		MODES = ["locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian"]
+		MODES = ("locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian")
 		return MODES[select_range(1, len(MODES), self.valence) - 1]
 
 	@property
