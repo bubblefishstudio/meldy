@@ -33,7 +33,7 @@ def make_melody():
 	# TODO: move this where appropriate
 	meta = m21.metadata.Metadata()
 	meta.title = "Mood of the day" # TODO: maybe we can generate random titles
-	meta.composer = "Nuvola"
+	meta.composer = "Meldy"
 	meta.date = date.today().strftime("%Y/%m/%d")
 	m.metadata = meta
 
