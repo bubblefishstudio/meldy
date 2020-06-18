@@ -105,7 +105,17 @@ class MelodyGenerator:
 		mel.append(mot)
 		#mel.makeMeasures(inPlace=True) # bestClef=True
 		mel.makeNotation(inPlace=True)
-		mel.measure(-1).makeRests(fillGaps=True)
+
+		# TODO: maybe end melody in a better way?
+		# fix last measure, possibly not filled up
+		last_meas = mel.measure(-1)
+		last_meas.clear()
+		last_meas.append(self._create_note(1,4))
+		last_meas.rightBarline = m21.bar.Barline("final")
+
+		print(mel.show("text"))
+
+		# return generated melody
 		return mel
 
 
