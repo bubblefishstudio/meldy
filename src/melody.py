@@ -104,7 +104,8 @@ class MelodyGenerator:
 		mot = self.gen_motif() # TODO: to change
 		mel.append(mot)
 		#mel.makeMeasures(inPlace=True) # bestClef=True
-		mel.makeNotation()
+		mel.makeNotation(inPlace=True)
+		mel.measure(-1).makeRests(fillGaps=True)
 		return mel
 
 
@@ -119,9 +120,11 @@ class MelodyGenerator:
 		return [*map(int, g.generate_sequence(n))]
 
 	def _create_note(self, grade, duration):
-		# TODO: rests
-		n = m21.note.Note()
-		n.pitch = self.key.pitchFromDegree(grade)
-		n.octave += grade // 8 # transpose octaves, cause `pitchFromDegree` doesn't do that apparently
+		if grade > 0:
+			n = m21.note.Note()
+			n.pitch = self.key.pitchFromDegree(grade)
+			n.octave += grade // 8 # transpose octaves, cause `pitchFromDegree` doesn't do that apparently
+		else:
+			n = m21.note.Rest()
 		n.duration = m21.duration.Duration(duration)
 		return n
