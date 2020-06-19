@@ -19,8 +19,10 @@ jobs:
           npm run build:prod
 
       - name: Copy docs/ folder 🔧
-        run : |
-          cp -r ./docs ./front-end/dist/
+        run : cp -r ./docs ./front-end/dist/
+
+      - name: Setup custom domain 🔧
+        run: echo meldy.app > ./front-end/dist/CNAME
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3.6.1
