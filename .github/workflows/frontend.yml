@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy docs/ folder 🔧
         run : |
-          cp ./docs ./front-end/dist/
+          cp -r ./docs ./front-end/dist/
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3.6.1
