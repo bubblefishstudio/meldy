@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="grammar.svg"
+   id="svg243"
+   version="1.1"
+   viewBox="0.00 0.00 712.49 428.00"
+   height="428pt"
+   width="712pt">
+  <metadata
+     id="metadata249">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs247" />
+  <sodipodi:namedview
+     inkscape:current-layer="graph0"
+     inkscape:window-maximized="1"
+     inkscape:window-y="32"
+     inkscape:window-x="0"
+     inkscape:cy="425.1063"
+     inkscape:cx="615.75591"
+     inkscape:zoom="1.4334112"
+     showgrid="false"
+     id="namedview245"
+     inkscape:window-height="985"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <g
+     transform="scale(1 1) rotate(0) translate(4 424)"
+     class="graph"
+     id="graph0">
+    <title
+       id="title2">grades</title>
+    <polygon
+       style="fill:none"
+       id="polygon4"
+       points="-4,4 -4,-424 708.49,-424 708.49,4 -4,4"
+       stroke="none"
+       fill="white" />
+    <!-- DO -->
+    <g
+       class="node"
+       id="node1">
+      <title
+         id="title6">DO</title>
+      <ellipse
+         style="fill:#feffff;fill-opacity:1"
+         id="ellipse8"
+         ry="18"
+         rx="27"
+         cy="-189"
+         cx="27"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text10"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-185.3"
+         x="27"
+         text-anchor="middle">DO</text>
+    </g>
+    <!-- MI -->
+    <g
+       class="node"
+       id="node2">
+      <title
+         id="title13">MI</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse15"
+         ry="18"
+         rx="27"
+         cy="-189"
+         cx="135"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text17"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-185.3"
+         x="135"
+         text-anchor="middle">MI</text>
+    </g>
+    <!-- DO&#45;&gt;MI -->
+    <g
+       class="edge"
+       id="edge1">
+      <title
+         id="title20">DO-&gt;MI</title>
+      <path
+         id="path22"
+         d="M48.9675,-178.487C56.0945,-175.442 64.2256,-172.529 72,-171 82.5578,-168.924 93.916,-170.936 103.99,-174.262"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon24"
+         points="102.967,-177.619 113.558,-177.924 105.469,-171.081 102.967,-177.619"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text26"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-174.8"
+         x="81"
+         text-anchor="middle">0.2</text>
+    </g>
+    <!-- SOL -->
+    <g
+       class="node"
+       id="node3">
+      <title
+         id="title29">SOL</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse31"
+         ry="18"
+         rx="27.0966"
+         cy="-278"
+         cx="351.298"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text33"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-274.3"
+         x="351.298"
+         text-anchor="middle">SOL</text>
+    </g>
+    <!-- DO&#45;&gt;SOL -->
+    <g
+       class="edge"
+       id="edge2">
+      <title
+         id="title36">DO-&gt;SOL</title>
+      <path
+         id="path38"
+         d="M27.2709,-207.053C27.0894,-238.916 31.9059,-304.628 72,-335 113.45,-366.399 259.506,-358.287 306,-335 319.305,-328.336 329.797,-315.592 337.224,-303.841"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon40"
+         points="340.271,-305.565 342.301,-295.166 334.229,-302.029 340.271,-305.565"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text42"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-358.8"
+         x="189"
+         text-anchor="middle">0.5</text>
+    </g>
+    <!-- RE -->
+    <g
+       class="node"
+       id="node4">
+      <title
+         id="title45">RE</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse47"
+         ry="18"
+         rx="27"
+         cy="-127"
+         cx="567.595"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text49"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-123.3"
+         x="567.595"
+         text-anchor="middle">RE</text>
+    </g>
+    <!-- DO&#45;&gt;RE -->
+    <g
+       class="edge"
+       id="edge3">
+      <title
+         id="title52">DO-&gt;RE</title>
+      <path
+         id="path54"
+         d="M35.3257,-171.648C49.5126,-141.119 83.8202,-81 134,-81 134,-81 134,-81 460.595,-81 489.604,-81 519.661,-95.6765 540.327,-108.45"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon56"
+         points="538.549,-111.467 548.851,-113.941 542.34,-105.583 538.549,-111.467"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text58"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-84.8"
+         x="297"
+         text-anchor="middle">0.3</text>
+    </g>
+    <!-- MI&#45;&gt;DO -->
+    <g
+       class="edge"
+       id="edge8">
+      <title
+         id="title61">MI-&gt;DO</title>
+      <path
+         id="path63"
+         d="M107.732,-189C94.5991,-189 78.5,-189 64.215,-189"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon65"
+         points="64.2023,-185.5 54.2023,-189 64.2022,-192.5 64.2023,-185.5"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text67"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-192.8"
+         x="81"
+         text-anchor="middle">0.4</text>
+    </g>
+    <!-- MI&#45;&gt;SOL -->
+    <g
+       class="edge"
+       id="edge7">
+      <title
+         id="title70">MI-&gt;SOL</title>
+      <path
+         id="path72"
+         d="M159.551,-181.35C187.359,-173.723 234.332,-165.334 270,-182 300.624,-196.309 323.68,-228.678 337.058,-251.874"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon74"
+         points="334.129,-253.81 342.031,-260.867 340.255,-250.422 334.129,-253.81"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text76"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-185.8"
+         x="243"
+         text-anchor="middle">0.5</text>
+    </g>
+    <!-- FA -->
+    <g
+       class="node"
+       id="node5">
+      <title
+         id="title79">FA</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse81"
+         ry="18"
+         rx="27"
+         cy="-224"
+         cx="243"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text83"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-220.3"
+         x="243"
+         text-anchor="middle">FA</text>
+    </g>
+    <!-- MI&#45;&gt;FA -->
+    <g
+       class="edge"
+       id="edge9">
+      <title
+         id="title86">MI-&gt;FA</title>
+      <path
+         id="path88"
+         d="M159.525,-196.768C174.072,-201.571 192.962,-207.808 208.993,-213.102"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon90"
+         points="207.948,-216.442 218.541,-216.254 210.143,-209.795 207.948,-216.442"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text92"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-211.8"
+         x="189"
+         text-anchor="middle">0.1</text>
+    </g>
+    <!-- SOL&#45;&gt;DO -->
+    <g
+       class="edge"
+       id="edge12">
+      <title
+         id="title95">SOL-&gt;DO</title>
+      <path
+         id="path97"
+         d="M325.153,-283.858C297.871,-289.212 253.224,-295.037 216,-286 154.078,-270.967 89.7386,-231.758 54.6992,-208.047"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon99"
+         points="56.2542,-204.868 46.0303,-202.09 52.2898,-210.638 56.2542,-204.868"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text101"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-283.8"
+         x="189"
+         text-anchor="middle">0.4</text>
+    </g>
+    <!-- SOL&#45;&gt;MI -->
+    <g
+       class="edge"
+       id="edge11">
+      <title
+         id="title104">SOL-&gt;MI</title>
+      <path
+         id="path106"
+         d="M324.18,-275.78C296.461,-272.737 251.807,-265.853 216,-251 193.886,-241.827 172.65,-224.856 157.622,-210.986"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon108"
+         points="160.014,-208.431 150.357,-204.073 155.188,-213.502 160.014,-208.431"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text110"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-270.8"
+         x="243"
+         text-anchor="middle">0.5</text>
+    </g>
+    <!-- LA -->
+    <g
+       class="node"
+       id="node6">
+      <title
+         id="title113">LA</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse115"
+         ry="18"
+         rx="27"
+         cy="-259"
+         cx="459.595"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text117"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-255.3"
+         x="459.595"
+         text-anchor="middle">LA</text>
+    </g>
+    <!-- SOL&#45;&gt;LA -->
+    <g
+       class="edge"
+       id="edge13">
+      <title
+         id="title120">SOL-&gt;LA</title>
+      <path
+         id="path122"
+         d="M377.758,-273.449C391.432,-271.005 408.498,-267.955 423.421,-265.287"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon124"
+         points="424.114,-268.719 433.342,-263.514 422.882,-261.828 424.114,-268.719"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text126"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-272.8"
+         x="405.595"
+         text-anchor="middle">0.1</text>
+    </g>
+    <!-- RE&#45;&gt;DO -->
+    <g
+       class="edge"
+       id="edge5">
+      <title
+         id="title129">RE-&gt;DO</title>
+      <path
+         id="path131"
+         d="M556.135,-110.404C539.267,-85.9241 503.565,-43 460.595,-43 134,-43 134,-43 134,-43 76.1255,-43 46.5753,-119.053 34.6112,-161.378"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon133"
+         points="31.2144,-160.532 32.0045,-171.098 37.9754,-162.345 31.2144,-160.532"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text135"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-46.8"
+         x="297"
+         text-anchor="middle">0.2</text>
+    </g>
+    <!-- RE&#45;&gt;MI -->
+    <g
+       class="edge"
+       id="edge4">
+      <title
+         id="title138">RE-&gt;MI</title>
+      <path
+         id="path140"
+         d="M540.458,-127C519.004,-127 487.831,-127 460.595,-127 242,-127 242,-127 242,-127 209.251,-127 177.639,-149.323 157.59,-167.179"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon142"
+         points="155.196,-164.626 150.241,-173.992 159.955,-169.76 155.196,-164.626"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text144"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-130.8"
+         x="351.298"
+         text-anchor="middle">0.3</text>
+    </g>
+    <!-- RE&#45;&gt;FA -->
+    <g
+       class="edge"
+       id="edge6">
+      <title
+         id="title147">RE-&gt;FA</title>
+      <path
+         id="path149"
+         d="M542.872,-134.637C536.311,-136.725 529.184,-138.971 522.595,-141 434.647,-168.09 330.643,-198.698 278.076,-214.069"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon151"
+         points="276.885,-210.77 268.268,-216.934 278.848,-217.489 276.885,-210.77"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text153"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-181.8"
+         x="405.595"
+         text-anchor="middle">0.5</text>
+    </g>
+    <!-- FA&#45;&gt;SOL -->
+    <g
+       class="edge"
+       id="edge10">
+      <title
+         id="title156">FA-&gt;SOL</title>
+      <path
+         id="path158"
+         d="M267.156,-232.099C279.021,-236.556 293.553,-242.497 306,-249 311.881,-252.073 317.968,-255.718 323.676,-259.37"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon160"
+         points="321.978,-262.442 332.252,-265.03 325.834,-256.6 321.978,-262.442"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text162"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-252.8"
+         x="297"
+         text-anchor="middle">1</text>
+    </g>
+    <!-- LA&#45;&gt;DO -->
+    <g
+       class="edge"
+       id="edge16">
+      <title
+         id="title165">LA-&gt;DO</title>
+      <path
+         id="path167"
+         d="M454.563,-276.902C444.611,-315.889 415.005,-405 352.298,-405 134,-405 134,-405 134,-405 51.2218,-405 33.0823,-275.571 29.1112,-217.091"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon169"
+         points="32.6015,-216.822 28.5221,-207.045 25.6135,-217.232 32.6015,-216.822"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text171"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-408.8"
+         x="243"
+         text-anchor="middle">0.1</text>
+    </g>
+    <!-- LA&#45;&gt;SOL -->
+    <g
+       class="edge"
+       id="edge17">
+      <title
+         id="title174">LA-&gt;SOL</title>
+      <path
+         id="path176"
+         d="M436.484,-249.46C424.513,-245.601 409.561,-242.914 396.595,-247 389.332,-249.289 382.224,-253.24 375.902,-257.57"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon178"
+         points="373.753,-254.807 367.827,-263.59 377.937,-260.419 373.753,-254.807"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text180"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-250.8"
+         x="405.595"
+         text-anchor="middle">0.3</text>
+    </g>
+    <!-- LA&#45;&gt;RE -->
+    <g
+       class="edge"
+       id="edge15">
+      <title
+         id="title183">LA-&gt;RE</title>
+      <path
+         id="path185"
+         d="M473.171,-243.34C491.579,-220.416 526.006,-177.545 547.536,-150.735"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon187"
+         points="550.503,-152.629 554.036,-142.64 545.045,-148.246 550.503,-152.629"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text189"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-203.8"
+         x="513.595"
+         text-anchor="middle">0.2</text>
+    </g>
+    <!-- SI -->
+    <g
+       class="node"
+       id="node7">
+      <title
+         id="title192">SI</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse194"
+         ry="18"
+         rx="27"
+         cy="-241"
+         cx="567.595"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text196"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-237.3"
+         x="567.595"
+         text-anchor="middle">SI</text>
+    </g>
+    <!-- LA&#45;&gt;SI -->
+    <g
+       class="edge"
+       id="edge14">
+      <title
+         id="title199">LA-&gt;SI</title>
+      <path
+         id="path201"
+         d="M486.741,-259.979C497.88,-259.928 510.963,-259.243 522.595,-257 526.611,-256.226 530.747,-255.138 534.802,-253.889"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon203"
+         points="536.267,-257.087 544.599,-250.543 534.004,-250.463 536.267,-257.087"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text205"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-262.8"
+         x="513.595"
+         text-anchor="middle">0.4</text>
+    </g>
+    <!-- SI&#45;&gt;LA -->
+    <g
+       class="edge"
+       id="edge19">
+      <title
+         id="title208">SI-&gt;LA</title>
+      <path
+         id="path210"
+         d="M541.289,-236.72C529.944,-235.58 516.472,-235.311 504.595,-238 499.694,-239.11 494.699,-240.834 489.918,-242.829"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon212"
+         points="488.104,-239.812 480.502,-247.192 491.047,-246.163 488.104,-239.812"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text214"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-241.8"
+         x="513.595"
+         text-anchor="middle">0.1</text>
+    </g>
+    <!-- DO^ -->
+    <g
+       class="node"
+       id="node8">
+      <title
+         id="title217">DO^</title>
+      <ellipse
+         style="fill:#ffffff"
+         id="ellipse219"
+         ry="18"
+         rx="27.8951"
+         cy="-68"
+         cx="676.543"
+         stroke="black"
+         fill="none" />
+      <text
+         id="text221"
+         font-size="14px"
+         font-family="Times, serif"
+         y="-64.300003"
+         x="676.54303"
+         text-anchor="middle">DO⁸</text>
+    </g>
+    <!-- SI&#45;&gt;DO^ -->
+    <g
+       class="edge"
+       id="edge18">
+      <title
+         id="title224">SI-&gt;DO^</title>
+      <path
+         id="path226"
+         d="M578.85,-224.412C597.615,-194.057 637.589,-129.395 659.814,-93.443"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon228"
+         points="663.038,-94.8841 665.319,-84.5377 657.084,-91.2032 663.038,-94.8841"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text230"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-167.8"
+         x="621.595"
+         text-anchor="middle">0.9</text>
+    </g>
+    <!-- DO^&#45;&gt;DO -->
+    <g
+       class="edge"
+       id="edge20">
+      <title
+         id="title233">DO^-&gt;DO</title>
+      <path
+         id="path235"
+         d="M662.083,-52.2285C643.347,-32.1406 607.32,-0 568.595,-0 134,-0 134,-0 134,-0 61.1443,-0 37.8566,-108.157 30.8351,-160.834"
+         stroke="black"
+         fill="none" />
+      <polygon
+         id="polygon237"
+         points="27.3466,-160.526 29.6046,-170.878 34.2947,-161.378 27.3466,-160.526"
+         stroke="black"
+         fill="black" />
+      <text
+         id="text239"
+         font-size="14.00"
+         font-family="Times,serif"
+         y="-3.8"
+         x="351.298"
+         text-anchor="middle">1</text>
+    </g>
+  </g>
+</svg>
