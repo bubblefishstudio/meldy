@@ -30,7 +30,7 @@ def make_melody():
 		print("~~ end profile ~~")
 		pr.dump_stats("profile.perf")
 
-	# TODO: move this where appropriate
+	# TODO: move this where appropriate maybe
 	meta = m21.metadata.Metadata()
 	meta.title = "Mood of the day" # TODO: maybe we can generate random titles
 	meta.composer = "Meldy"

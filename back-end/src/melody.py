@@ -16,12 +16,28 @@ with open(path.join(path.dirname(__file__), "../data/durations.yml")) as f:
 	_duration_rules = safe_load(f)
 #################
 
+
+# some constants #
+MODES = ("locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian")
+ALLOWED_ROOT_NAMES = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")
+MODE2SHIFT = {
+	"locrian": "M7",
+	"phrygian": "M3",
+	"aeolian": "M6",
+	"dorian": "M2",
+	"mixolydian": "P5",
+	"ionian": "P1",
+	"lydian": "P4",
+}
+##################
+
+
 class MelodyGenerator:
 
 	def __init__(self, valence, arousal):
 		self.valence = valence
 		self.arousal = arousal
-		self.root = math.floor(random() * 12)
+		self.base_root = math.floor(random() * 12)
 
 	@property
 	def valence(self):
@@ -45,12 +61,17 @@ class MelodyGenerator:
 
 	@property
 	def root(self):
-		return m21.pitch.Pitch(self._root)
+		# some notes are not allowed in certain modes
+		# e.g. G# mixolydian is legit (= C# ionian), but G# ionian is not (must be Ab ionian)
+		#
+		# simple fix: rotate base_root based on the current mode, to obtain actual root
+		# e.g. if base_root is "C#" and mode is "mixolydian", then root is "G#"
+		return self._base_root.transpose(MODE2SHIFT[self.mode])
 
-	@root.setter
-	def root(self, k):
-		m21.pitch.Pitch(k) # for testing value and raising exception if needed
-		self._root = k
+	def base_root(self, k):
+		self._base_root = m21.pitch.Pitch(ALLOWED_ROOT_NAMES[k])
+
+	base_root = property(None, base_root)
 
 	@property
 	def octave(self):
@@ -58,7 +79,6 @@ class MelodyGenerator:
 
 	@property
 	def mode(self):
-		MODES = ["locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian"]
 		return MODES[select_range(1, len(MODES), self.valence) - 1]
 
 	@property
@@ -79,11 +99,11 @@ class MelodyGenerator:
 
 	def gen_motif(self):
 		"""generates a motif, shortest subdivision"""
-		grades = self._gen_grades_sequence(100) # TODO: change number
+		grades = self._gen_grades_sequence(100) # TODO: change number maybe
 		durations = self._gen_duration_sequence(len(grades))
 		mot = m21.stream.Stream()
 
-		for i in range(len(grades)):
+		for i in range(min(len(grades), len(durations))): # TODO: lengths should be equal in theory, in practice sometimes is not true (some bug)
 			mot.append(self._create_note(grades[i], durations[i]))
 
 		return mot
@@ -105,7 +125,15 @@ class MelodyGenerator:
 		mel.append(mot)
 		#mel.makeMeasures(inPlace=True) # bestClef=True
 		mel.makeNotation(inPlace=True)
-		mel.measure(-1).makeRests(fillGaps=True)
+
+		# TODO: maybe end melody in a better way?
+		# fix last measure, possibly not filled up
+		last_meas = mel.measure(-1)
+		last_meas.clear()
+		last_meas.append(self._create_note(1,4))
+		last_meas.rightBarline = m21.bar.Barline("final")
+
+		# return generated melody
 		return mel
 
 
