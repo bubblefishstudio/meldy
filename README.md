@@ -25,13 +25,13 @@ The focus of this application is on the Melody Generation step.
 
 ### Mood Selection
 
-![mood picker](docs/video/mood.gif)
+![mood picker](/docs/video/mood.gif)
 
 **TODO**
 
 ### Melody Generation
 
-![grammar](/docs/pic/grammar.svg)
+<img alt="grammar" src="/docs/pic/grammar.svg" width="320">
 
 **TODO**
 
