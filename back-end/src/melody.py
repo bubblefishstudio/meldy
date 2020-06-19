@@ -50,13 +50,12 @@ class MelodyGenerator:
 		#
 		# simple fix: rotate base_root based on the current mode, to obtain actual root
 		# e.g. if base_root is "C#" and mode is "mixolydian", then root is "G#"
-		base_root = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")[self._root]
-		return m21.pitch.Pitch(base_root) # TODO
+		pitch_shift = ("M7", "M3", "M6", "M2", "P5", "P1", "P4")[self.mode]
+		return self._base_root.transpose(pitch_shift)
 
 	def base_root(self, k):
-		if not (k >= 0 and k < 12):
-			raise ValueError("base_root note should be a value between 0 and 11")
-		self._root = k
+		pitch_name = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")[k]
+		self._base_root = m21.pitch.Pitch(pitch_name)
 
 	base_root = property(None, base_root)
 
