@@ -31,7 +31,7 @@ The focus of this application is on the Melody Generation step.
 
 ### Melody Generation
 
-<img alt="grammar" src="/docs/pic/grammar.svg" width="320">
+<img alt="grammar" src="/docs/pic/grammar.svg" width="500">
 
 **TODO**
 
