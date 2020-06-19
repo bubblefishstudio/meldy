@@ -16,6 +16,22 @@ with open(path.join(path.dirname(__file__), "../data/durations.yml")) as f:
 	_duration_rules = safe_load(f)
 #################
 
+
+# some constants #
+MODES = ("locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian")
+ALLOWED_ROOT_NAMES = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")
+MODE2SHIFT = {
+	"locrian": "M7",
+	"phrygian": "M3",
+	"aeolian": "M6",
+	"dorian": "M2",
+	"mixolydian": "P5",
+	"ionian": "P1",
+	"lydian": "P4",
+}
+##################
+
+
 class MelodyGenerator:
 
 	def __init__(self, valence, arousal):
@@ -50,12 +66,10 @@ class MelodyGenerator:
 		#
 		# simple fix: rotate base_root based on the current mode, to obtain actual root
 		# e.g. if base_root is "C#" and mode is "mixolydian", then root is "G#"
-		pitch_shift = ("M7", "M3", "M6", "M2", "P5", "P1", "P4")[self.mode]
-		return self._base_root.transpose(pitch_shift)
+		return self._base_root.transpose(MODE2SHIFT[self.mode])
 
 	def base_root(self, k):
-		pitch_name = ("C", "C#", "D", "E-", "E", "F", "F#", "G", "A-", "A", "B-", "B")[k]
-		self._base_root = m21.pitch.Pitch(pitch_name)
+		self._base_root = m21.pitch.Pitch(ALLOWED_ROOT_NAMES[k])
 
 	base_root = property(None, base_root)
 
@@ -65,7 +79,6 @@ class MelodyGenerator:
 
 	@property
 	def mode(self):
-		MODES = ("locrian", "phrygian", "aeolian", "dorian", "mixolydian", "ionian", "lydian")
 		return MODES[select_range(1, len(MODES), self.valence) - 1]
 
 	@property
