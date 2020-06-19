@@ -6,8 +6,10 @@ It's developed as project for "Advanced Coding Tools and Methodologies" and "Com
 
 Demo Video
 ----------
+![avatar](/docs/pic/screen_demovideo.png)
 
-TODO
+[YouTube](https://youtu.be/GXCEjtqoQWU)
+
 
 Components
 ----------
