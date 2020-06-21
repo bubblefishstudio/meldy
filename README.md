@@ -41,6 +41,8 @@ Then, a grammar method [8] is used to generate the relative degrees (within one 
 
 <img alt="grammar" src="/docs/pic/grammar.svg" width="500">
 
+_More details on the rationale of the melody generation can be found in [`/docs/melody-generation.md`](/docs/melody-generation.md)._
+
 We employed the `music21` [1] library for the actual generation of the melody. The relevant code can be found in the class `MelodyGenerator` in source file [`/back-end/src/melody.py`](/back-end/src/melody.py). Since this is a Python library, this step is run on a separate back-end providing the following communication with the WebApp:
 
 <img alt="client-server communication" src="/docs/pic/client-server.svg" width="500">
