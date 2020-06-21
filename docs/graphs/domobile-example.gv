@@ -1,0 +1,33 @@
+digraph "do-mobile" {
+
+	rankdir=LR
+
+	DO -> MI [label="0.2"]
+	DO -> SOL [label="0.5"]
+	DO -> RE [label="0.3"]
+
+	RE -> MI [label="0.3"]
+	RE -> DO [label="0.2"]
+	RE -> FA [label="0.5"]
+
+	MI -> SOL [label="0.5"]
+	MI -> DO [label="0.4"]
+	MI -> FA [label="0.1"]
+
+	FA -> SOL [label="1"]
+
+	SOL -> MI [label="0.5"]
+	SOL -> DO [label="0.4"]
+	SOL -> LA [label="0.1"]
+
+	LA -> SI [label="0.4"]
+	LA -> RE [label="0.2"]
+	LA -> DO [label="0.1"]
+	LA -> SOL [label="0.3"]
+
+	SI -> "DO^" [label="0.9"]
+	SI -> LA [label="0.1"]
+
+	"DO^" -> DO [label="1"]
+
+}
