@@ -1,5 +1,7 @@
 digraph "degrees" {
 
+	rankdir=LR
+
 	I -> V [label=0.1]
 	I -> IV [label=0.2]
 	I -> VI [label=0.2]
