@@ -69,4 +69,4 @@ We decided to vary between three rulesets based on `arousal`, where:
 - The ruleset for middle arousal tends to remove faster notes and syncopations.
 - The ruleset for low arousal prefers very simple and straight rhythms.
 
-<img alt="durations grammar" title="durations grammar for high arousal" src="./pic/durations-grammar.svg" width="500">
+<img alt="durations grammar" title="durations grammar for high arousal" src="./pic/durations-grammar.svg" width="200">
