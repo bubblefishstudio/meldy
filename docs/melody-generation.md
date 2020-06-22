@@ -52,8 +52,10 @@ Since we are deriving the key signature from the input mood, it makes more sense
 
 Thinking about the `valence`, we observed that "positive" pieces generally have some sort of "uplifting" melody, while "negative" pieces have a "downwards" melody, so we decided to define two different rulesets at `0` and `1`:
 
-- The ruleset for high valence has higher probabilities in transitioning degrees in an "uplifting" manner (e.g. 1→3→5→8), and tends to create _consonant_ melodic intervals.
+- The ruleset for high valence has higher probabilities in transitioning degrees in an "uplifting" manner (e.g. 1→3→5→8), and tends to create _consonant_ melodic intervals (graph below).
 - The ruleset for low valence tends to create _dissonant_ melodic intervals.
+
+<img alt="degrees grammar" title="degrees grammar for high valence" src="./pic/degrees-grammar.svg" width="500">
 
 
 ### Durations
@@ -63,6 +65,8 @@ Instead of trying to define a grammar which is relative to the time-signature an
 
 We decided to vary between three rulesets based on `arousal`, where:
 
-- The ruleset for high arousal tends to add more faster notes (8ths and 16ths) and syncopations.
+- The ruleset for high arousal tends to add more faster notes (8ths and 16ths) and syncopations (graph below).
 - The ruleset for middle arousal tends to remove faster notes and syncopations.
 - The ruleset for low arousal prefers very simple and straight rhythms.
+
+<img alt="durations grammar" title="durations grammar for high arousal" src="./pic/durations-grammar.svg" width="500">
