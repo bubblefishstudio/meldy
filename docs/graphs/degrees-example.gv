@@ -1,0 +1,43 @@
+digraph "degrees" {
+
+	rankdir=LR
+
+	I -> V [label=0.1]
+	I -> IV [label=0.2]
+	I -> VI [label=0.2]
+	I -> III [label=0.3]
+	I -> II [label=0.2]
+
+	II -> I [label=0.7]
+	II -> III [label=0.2]
+	II -> VI [label=0.1]
+
+	III -> I [label=0.2]
+	III -> II [label=0.1]
+	III -> V [label=0.5]
+	III -> VI [label=0.2]
+
+	IV -> III [label=0.1]
+	IV -> V [label=0.5]
+	IV -> II [label=0.3]
+	IV -> I [label=0.1]
+
+	V -> III [label=0.2]
+	V -> V [label=0.2]
+	V -> VI [label=0.2]
+	V -> VIII [label=0.3]
+	V -> II [label=0.1]
+
+	VI -> II [label=0.5]
+	VI -> V [label=0.4]
+	VI -> VII [label=0.1]
+
+	VII -> VIII [label=0.9]
+	VII -> VI [label=0.1]
+
+	VIII -> VI [label=0.5]
+	VIII -> VII [label=0.1]
+	VIII -> VIII [label=0.1]
+	VIII -> I [label=0.3]
+
+}
