@@ -4,7 +4,8 @@ Meldy - A mood-based melody generator
 Meldy is a simple grammar-model melody generator, based on a user-provided mood expressed in the valence-arousal plane.
 It's developed as project for "Advanced Coding Tools and Methodologies" and "Computer Music: Representations and Models" courses of the MSc in Music and Acoustic Engineering of Politecnico di Milano.
 
-The slides for ACTAM can be found [here](https://mttbernardini.github.io/nuvola/docs/slides.html).
+The slides for ACTAM and CMRM can be found [here](https://mttbernardini.github.io/nuvola/docs/slides.html) / [here](https://mttbernardini.github.io/nuvola/docs/slides2.html).
+
 
 Demo Video
 ----------
