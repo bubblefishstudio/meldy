@@ -1,0 +1,11 @@
+name: Auto-merge Dependabot PR
+on: pull_request
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.0.0
+        with:
+          merge-method: rebase
+          github-token: ${{secrets.GITHUB_TOKEN}}
