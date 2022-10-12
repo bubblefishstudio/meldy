@@ -36,7 +36,7 @@
     "yaml-loader": "^0.6.0"
   },
   "dependencies": {
-    "opensheetmusicdisplay": "^0.7.6",
+    "opensheetmusicdisplay": "^1.5.7",
     "osmd-audio-player": "^0.4.1",
     "p5": "^1.0.0"
   }
