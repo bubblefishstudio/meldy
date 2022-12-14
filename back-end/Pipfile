@@ -4,8 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [scripts]
-server = "env FLASK_ENV=development python -m flask run"
+debug = "env FLASK_ENV=development python -m flask run"
 profile = "env PROFILE=1 pipenv run server"
+server = "gunicorn app:app"
 
 [dev-packages]
 
@@ -17,4 +18,4 @@ gunicorn = "*"
 flask-cors = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.10"
