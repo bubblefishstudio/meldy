@@ -13,7 +13,12 @@ authors = [
     {name = "Matteo Bernardini", email = "matteo@bubblefish.studio"},
     {name = "Yilin", email = "yilin@bubblefish.studio"}
 ]
-dependencies = ["flask", "music21", "pyyaml", "flask-cors"]
+dependencies = [
+    "flask ~= 1.1",
+    "flask-cors ~= 3.0",
+    "music21 ~= 5.7",
+    "pyyaml ~= 5.4",
+]
 requires-python = ">=3.7"
 readme = "README.md"
 
