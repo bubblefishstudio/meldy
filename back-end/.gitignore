@@ -1,2 +1,4 @@
 *.pyc
+.venv
+.pdm.toml
 profile.perf

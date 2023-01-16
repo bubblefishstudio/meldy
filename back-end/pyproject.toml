@@ -1,0 +1,27 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "meldy-backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Matteo Bernardini", email = "matteo@bubblefish.studio"},
+    {name = "Yilin", email = "yilin@bubblefish.studio"}
+]
+dependencies = ["flask", "music21", "pyyaml", "flask-cors"]
+requires-python = ">=3.7"
+readme = "README.md"
+
+
+[tool.pdm]
+
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[tool.pdm.scripts]
+server = "env FLASK_ENV=development python -m flask run"
+profile = "env PROFILE=1 pdm run server"

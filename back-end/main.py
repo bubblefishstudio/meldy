@@ -7,7 +7,7 @@ from flask import Flask, Response, request
 from flask_cors import cross_origin
 import music21 as m21
 
-from src.melody import MelodyGenerator
+from meldy import MelodyGenerator
 
 app = Flask(__name__)
 
