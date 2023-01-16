@@ -1,4 +1,6 @@
 *.pyc
+build
+dist
 .venv
 .pdm.toml
 .deta
