@@ -5,3 +5,4 @@ dist
 .pdm.toml
 .deta
 profile.perf
+requirements.txt
