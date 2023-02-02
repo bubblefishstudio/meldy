@@ -75,7 +75,7 @@ summary = "The comprehensive WSGI web application library."
 
 [metadata]
 lock_version = "4.1"
-content_hash = "sha256:ea11385af4d26714f7b8ca859f4e157f7024dfb013b039c54de4e775d53ac9fc"
+content_hash = "sha256:c66a87cc22adae778f8f9da4c9c2308395816c971689421f5df84e0a3bbbe75d"
 
 [metadata.files]
 "click 7.1.2" = [
