@@ -12,7 +12,15 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Deploy 🚀
+      - name: Export requirements.txt 🔧
         run: |
           cd back-end
-          make deploy
+          make requirements.txt
+
+      - name: Deploy 🚀
+        uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: 'meldy'
+          deta-project: 'bubblefishstudio'
+          deta-project-dir: 'back-end'
