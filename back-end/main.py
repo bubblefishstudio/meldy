@@ -12,7 +12,7 @@ from meldy import MelodyGenerator
 app = Flask(__name__)
 
 @app.route("/")
-@cross_origin(["http://localhost:8080", "https://mttbernardini.github.io/nuvola"])
+@cross_origin(["http://localhost:8080", "https://meldy.bubblefish.studio"])
 def make_melody():
 	valence = request.args.get("valence", default=1, type=float)
 	arousal = request.args.get("arousal", default=1, type=float)
