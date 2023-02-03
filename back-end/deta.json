@@ -1,0 +1,5 @@
+{
+  "name": "meldy",
+  "description": "melody generation back-end for the Meldy app",
+  "runtime": "python3.9"
+}

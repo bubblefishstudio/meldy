@@ -1,2 +1,8 @@
 *.pyc
+build
+dist
+.venv
+.pdm.toml
+.deta
 profile.perf
+requirements.txt

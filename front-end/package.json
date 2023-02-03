@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode development",
-    "build:prod": "webpack --mode production --define BACKEND_URL=\"'https://nuvola-ym.herokuapp.com/'\"",
+    "build:prod": "webpack --mode production --define BACKEND_URL=\"'https://gen.meldy.bubblefish.studio/'\"",
     "start": "webpack-dev-server --open"
   },
   "repository": {

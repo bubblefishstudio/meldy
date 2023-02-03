@@ -12,13 +12,18 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Prepare Files 🔧
+      - name: Setup PDM 🔧
+        uses: pdm-project/setup-pdm@v3
+
+      - name: Export requirements.txt 🔧
         run: |
-          echo "nothing to do!"
+          cd back-end
+          make requirements.txt
 
       - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3.6.1
+        uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
-          publish_dir: ./back-end/
-          publish_branch: heroku
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: 'meldy'
+          deta-project: 'bubblefishstudio'
+          deta-project-dir: 'back-end'

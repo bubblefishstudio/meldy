@@ -1,0 +1,35 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "meldy"
+
+[project]
+name = "meldy-backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Matteo Bernardini", email = "matteo@bubblefish.studio"},
+    {name = "Yilin", email = "yilin@bubblefish.studio"}
+]
+dependencies = [
+    "flask==1.1.2",
+    "flask-cors==3.0.9",
+    "music21==5.7.2",
+    "pyyaml==5.4",
+]
+requires-python = ">=3.7,<3.10"
+readme = "README.md"
+
+
+[tool.pdm]
+
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[tool.pdm.scripts]
+server = "env FLASK_DEBUG=1 python -m flask run"
+profile = "env PROFILE=1 pdm run server"
